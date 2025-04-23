@@ -425,6 +425,8 @@ a:hover {
     float: right;
     margin: auto;
     line-height: 16px;
+	font-family: Gilroy-Regular;
+	font-size: 14px;
 }
 
 /** End header nav top **/
@@ -570,6 +572,14 @@ a:hover {
     background-color: white;
 }
 
+/* HEADER-2-TOP */
+
+.header-2 .nav-li-float-right {
+	color: #4b4b4b;
+}
+
+/* HEADER-2-TOP */
+
 /* HEADER-2-BOTTOM */
 #header-2-bottom {
 	/* border-top: 1px solid rgba(175,175,175,.5);
@@ -619,7 +629,7 @@ a:hover {
 	bottom: 4px;
 }
 
-.top-menu-tel {
+.top-menu-tel .nav-li-float-right {
 	font-family: HelveticaNeueBoldCondensed;
 	font-size: 18px;
 	text-decoration: none;
@@ -1574,6 +1584,14 @@ h6,
     overflow: hidden;
 }
 
+.archive-portfolio-section-2 .img-wrapper img {
+	transform: scale(1);
+    object-fit: cover;
+    object-position: center;
+	height: 100%;
+	width: 100%;
+}
+
 /* End archive portfolio section 2 */
 /*** END ARCHIVE PORTFOLIO SECTION ***/
 
@@ -1727,9 +1745,10 @@ strong {
 }
 
 .contacts-section-4 .nav-link span {
-    font-family: HelveticaNeueCyr-Light;
+	font-family: Gilroy-Regular;
+	font-size: 14px;
 	text-transform: none;
-    color: #E1E1E1;
+    color: #ebebeb;
     transition: .25s;
     opacity: 1;
 }
