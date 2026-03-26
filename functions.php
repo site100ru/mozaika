@@ -73,6 +73,15 @@ add_filter('pre_set_site_transient_update_themes', function($transient) {
 
 
 
+/*** ВКЛЮЧАЕМ EXCERPT FOR PAGES (ОПИСАНИЕ ДЛЯ СТРАНИЦ) ***/
+add_action('init', 'add_excerpt_to_pages');
+function add_excerpt_to_pages() {
+	add_post_type_support('page', 'excerpt');
+}
+
+
+
+
 /*** ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/ 
 function echo_title() {
     
@@ -111,6 +120,8 @@ function echo_title() {
     }
 }
 /*** END ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
+
+
 
 
 /*** ДЕЛАЕМ ПРАВИЛЬНЫЙ DESCRIPTION ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
