@@ -1,13 +1,16 @@
 <?php
-// INCLUDE STYLES
+// INCLUDE STYLES AND SCRIPTS
 add_action('wp_enqueue_scripts', function() {
     // 1. Bootstrap загружается первым (база)
     wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css');
     
     // 2. style.css загружается после Bootstrap и переопределяет его
     wp_enqueue_style('style-css', get_stylesheet_uri(), array('bootstrap-css'));
+    
+    // 3. Подключаем jQuery (обязательно указываем зависимость и ставим в footer)
+    wp_enqueue_script('jquery');
 });
-// END INCLUDE STYLES
+// END INCLUDE STYLES AND SCRIPTS
 
 
 
