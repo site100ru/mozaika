@@ -19,7 +19,7 @@ jobs:
             cd ~/mozaikatemplate.ru/public_html/wp-content/themes/mozaika
             
             #Клинируем репозиторий в папку (только для первой выгрузки!!!)
-            #git clone https://github.com/site100ru/mozaika.git .
+            git clone https://github.com/site100ru/mozaika.git .
             
             #Клинируем репозиторий в папку
             #git pull
