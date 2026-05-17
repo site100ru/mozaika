@@ -1227,9 +1227,7 @@ function my_extra_fields_update( $post_id ){
 
 
 
-/**
- * Change several of the breadcrumb defaults
- */
+/* Change several of the breadcrumb defaults */
 add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
 	return array(
