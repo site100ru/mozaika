@@ -4,6 +4,10 @@ on:
   release:
     types: [created]
 
+# 👇 ЭТО САМОЕ ВАЖНОЕ - нужно на уровне workflow
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
