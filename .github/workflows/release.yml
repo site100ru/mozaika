@@ -23,4 +23,4 @@ jobs:
         with:
           artifacts: "mozaika.zip"
           allowUpdates: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_TOKEN }}
