@@ -1,0 +1,22 @@
+name: Build Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build theme ZIP
+        run: |
+          git archive --format=zip --output=mozaika.zip HEAD
+      
+      - name: Upload to release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "mozaika.zip"
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
