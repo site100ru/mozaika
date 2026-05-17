@@ -2,25 +2,22 @@ name: Build Release
 
 on:
   release:
-    types: [created]
-
-# 👇 ЭТО САМОЕ ВАЖНОЕ - нужно на уровне workflow
-permissions:
-  contents: write
+    types: [published]  # или [created] - на ваше усмотрение
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Build theme ZIP
         run: |
           git archive --format=zip --output=mozaika.zip HEAD
-      
-      - name: Upload to release
-        uses: ncipollo/release-action@v1
+          echo "✅ Archive created: $(ls -lh mozaika.zip)"
+
+      - name: Upload ZIP to release
+        uses: softprops/action-gh-release@v2  # Используем более надежный action
         with:
-          artifacts: "mozaika.zip"
-          allowUpdates: true
-          token: ${{ secrets.RELEASE_TOKEN }}
+          files: mozaika.zip
+          token: ${{ secrets.RELEASE_TOKEN }}   # 👈 ГЛАВНОЕ: используем PAT
