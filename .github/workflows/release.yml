@@ -2,7 +2,7 @@ name: Build Release
 
 on:
   release:
-    types: [published]  # или [created] - на ваше усмотрение
+    types: [published]
 
 jobs:
   build:
@@ -14,10 +14,9 @@ jobs:
       - name: Build theme ZIP
         run: |
           git archive --format=zip --output=mozaika.zip HEAD
-          echo "✅ Archive created: $(ls -lh mozaika.zip)"
 
       - name: Upload ZIP to release
-        uses: softprops/action-gh-release@v2  # Используем более надежный action
+        uses: softprops/action-gh-release@v2
         with:
           files: mozaika.zip
-          token: ${{ secrets.RELEASE_TOKEN }}   # 👈 ГЛАВНОЕ: используем PAT
+          token: ${{ secrets.RELEASE_TOKEN }}
