@@ -1223,3 +1223,67 @@ function my_extra_fields_update( $post_id ){
 	return $post_id;
 }
 /* END подключаем функцию активации мета блока (my_extra_fields) */
+
+
+
+
+/**
+ * Change several of the breadcrumb defaults
+ */
+add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
+function jk_woocommerce_breadcrumbs() {
+	return array(
+			'delimiter'   => ' &#47; ',
+			'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><a href="https://мозаика62.рф/"><img src="'.get_stylesheet_directory_uri().'/img/ico/breadcrumbs-icon.svg"></a> / ',
+			'wrap_after'  => '</nav>',
+			'before'      => '',
+			'after'       => '',
+			'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
+		);
+}
+
+/**/
+// Убираем ссылку на главную страницу сайта в хлебных крошках, чтобы потом подставить вместо этого ссылку с изображением
+add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_home_text' );
+function wcc_change_breadcrumb_home_text( $defaults ) {
+	// Change the breadcrumb home text from 'Home' to 'Apartment'
+	$defaults['home'] = null;
+	return $defaults;
+}
+
+
+/* Добавляем ссылку на главную страницу магазина в хлебных крошках */
+/* Изменил от первоначальной версии */
+add_filter( 'woocommerce_get_breadcrumb', function($crumbs, $Breadcrumb){
+	//$shop_page_id = wc_get_page_id('shop'); //Get the shop page ID
+	// Если это страница магазина, страница архива или таксономии продуктов, то добавляем впереде ссылку на страницу архива продуктов
+	if ( is_post_type_archive( 'products' ) OR is_product_taxonomy( 'product-cat' ) ) { //Check we got an ID (shop page is set). Added check for is_shop to prevent Home / Shop / Shop as suggested in comments
+		$new_breadcrumb = [
+			_x( 'Продукция', 'breadcrumb', 'woocommerce' ), //Title
+			get_permalink( wc_get_page_id( 'shop' ) ) // URL
+		];
+		array_splice( $crumbs, 0, 0, [ $new_breadcrumb ] ); //Insert a new breadcrumb after the 'Home' crumb
+	} else if ( is_tax( 'portfolio-cat' ) ) {
+		$new_breadcrumb = [
+			_x( 'Наши работы', 'breadcrumb', 'woocommerce' ), //Title
+			'https://мозаика62.рф/portfolio/' // URL
+		];
+		array_splice( $crumbs, 0, 1, [ $new_breadcrumb ] ); //Insert a new breadcrumb after the 'Home' crumb
+	}
+	return $crumbs;
+}, 10, 2 );
+
+
+/* WC 2.6.4: Изменить любой элемент "хлебных крошек" */
+add_filter( 'woocommerce_get_breadcrumb', 'my_woocommerce_get_breadcrumb' );
+function my_woocommerce_get_breadcrumb($breadcrumb) {
+		
+		foreach ( $breadcrumb as $key => $crumb ) {
+			// заменяем "крошку" корня каталога "Каталог" на "Мой каталог"
+			//if ($breadcrumb[$key][0] == 'Каталог') $breadcrumb[$key][0] = 'Мой каталог';
+			// заменяем, если в "крошке" название 'Компьютеры Apple'
+			if ($breadcrumb[$key][0] == 'Наша продукция') $breadcrumb[$key][0] = 'Продукция';
+		}
+		
+	return $breadcrumb;
+}
