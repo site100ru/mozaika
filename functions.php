@@ -3,9 +3,12 @@
 add_action('wp_enqueue_scripts', function() {
     // 1. Bootstrap загружается первым (база)
     wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css');
+
+    // 2. style.css загружается после Bootstrap и переопределяет его
+    wp_enqueue_style('themestyle-css', get_template_directory_uri() . '/css/theme.css');
     
     // 2. style.css загружается после Bootstrap и переопределяет его
-    wp_enqueue_style('style-css', get_stylesheet_uri(), array('bootstrap-css'));
+    //wp_enqueue_style('style-css', get_stylesheet_uri(), array('bootstrap-css'));
     
     // 3. Подключаем jQuery (обязательно указываем зависимость и ставим в footer)
     wp_enqueue_script('jquery');
@@ -161,7 +164,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 			$output .= '
 				<li class="nav-item d-none">
 					<span class="nav-link">
-						<img src="'.get_stylesheet_directory_uri().'/img/ico/menu-decoration-point.svg" alt="">
+						<img src="'.get_template_directory_uri().'/img/ico/menu-decoration-point.svg" alt="">
 					</span>
 				</li>
 			';
@@ -169,7 +172,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 			$output .= '
 				<li class="nav-item d-none d-xl-inline">
 					<span class="nav-link">
-						<img src="'.get_stylesheet_directory_uri().'/img/ico/menu-decoration-point.svg" alt="">
+						<img src="'.get_template_directory_uri().'/img/ico/menu-decoration-point.svg" alt="">
 					</span>
 				</li>
 			';
@@ -1232,7 +1235,7 @@ add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
 	return array(
 			'delimiter'   => ' &#47; ',
-			'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><a href="https://мозаика62.рф/"><img src="'.get_stylesheet_directory_uri().'/img/ico/breadcrumbs-icon.svg"></a> / ',
+			'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><a href="https://мозаика62.рф/"><img src="'.get_template_directory_uri().'/img/ico/breadcrumbs-icon.svg"></a> / ',
 			'wrap_after'  => '</nav>',
 			'before'      => '',
 			'after'       => '',
