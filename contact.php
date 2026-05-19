@@ -3,7 +3,7 @@
 	/**
 	 * Template Name: Контакты
 	 * Template Post Type: page
-	**/
+	 */
 	
 	include 'header.php';
 	
