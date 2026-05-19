@@ -198,7 +198,6 @@ add_action( 'after_setup_theme', function() {
 		//'menu-main-menu-3' => 'Menu main menu 3',
 		//'contacts-menu-2' => 'Contacts menu 2',
 		//'navbarSupportedContent2' => 'navbarSupportedContent2'
-
 	] );
 } );
 
@@ -1230,6 +1229,7 @@ function my_extra_fields_update( $post_id ){
 
 
 
+/*** BREADCRUMBS ***/
 /* Настройки хлебных крошек: иконка главной вместо текста, разделитель */
 add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
@@ -1253,3 +1253,4 @@ add_filter( 'woocommerce_get_breadcrumb', function( $crumbs ) {
 	}
 	return $crumbs;
 } );
+/*** END BREADCRUMBS ***/

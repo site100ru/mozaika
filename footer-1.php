@@ -87,8 +87,7 @@
 		<div class="row align-items-center">
 			<div class="col-xl-2">
 				<a href="/">
-					<img id="navbar-brand-img" src="<?php echo get_template_directory_uri(); ?>/img/ico/logo-light.svg"
-						class="img-fluid">
+					<img id="navbar-brand-img" src="<?php echo get_template_directory_uri(); ?>/img/ico/logo-light.svg" class="img-fluid">
 				</a>
 			</div>
 			<div class="col-xl-8">
@@ -98,9 +97,7 @@
 					'container' => false,
 					'menu_class' => '',
 					'fallback_cb' => '__return_false',
-					'items_wrap' => '
-							<ul id="%1$s" class="nav justify-content-center %2$s">%3$s</ul>
-						',
+					'items_wrap' => '<ul id="%1$s" class="nav justify-content-center %2$s">%3$s</ul>',
 					'depth' => 2,
 					'walker' => new bootstrap_5_wp_nav_menu_walker()
 				));
@@ -108,8 +105,7 @@
 			</div>
 			<div class="col-xl-2 text-end">
 				<a href="tel:‪89511014610" class="contacts-phone">‪
-					<img src="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-phone-ico.svg" class="me-2"
-						style="position: relative; bottom: 1px;">8 <span>(951)</span> 101-46-10
+					<img src="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-phone-ico.svg" class="me-2" style="position: relative; bottom: 1px;">8 <span>(951)</span> 101-46-10
 				</a>
 			</div>
 		</div>
@@ -431,8 +427,7 @@
 <!-- Показываем сообщение об успешной отправки -->
 <div style="display: <?php echo $_SESSION['display'] ?>;" onclick="modalClose();">
 	<div id="background-msg" style="display: <?php echo $_SESSION['display'] ?>;"></div>
-	<button id="btn-close" type="button" class="btn-close btn-close-white" onclick="modalClose();"
-		style="position: absolute; z-index: 9999; top: 15px; right: 15px;"></button>
+	<button id="btn-close" type="button" class="btn-close btn-close-white" onclick="modalClose();" style="position: absolute; z-index: 9999; top: 15px; right: 15px;"></button>
 	<div id="message">
 		<?php echo $_SESSION['recaptcha'];
 		unset($_SESSION['recaptcha']); ?>
