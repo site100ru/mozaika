@@ -198,7 +198,6 @@ add_action( 'after_setup_theme', function() {
 		//'menu-main-menu-3' => 'Menu main menu 3',
 		//'contacts-menu-2' => 'Contacts menu 2',
 		//'navbarSupportedContent2' => 'navbarSupportedContent2'
-
 	] );
 } );
 
@@ -889,28 +888,28 @@ if (class_exists('WP_Customize_Control')) {
                 $values = array();
             }
     ?>
-            <label>
-                <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
-                <?php if (!empty($this->description)) : ?>
-                    <span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
-                <?php endif; ?>
-            </label>
+<label>
+	<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+	<?php if (!empty($this->description)) : ?>
+	<span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
+	<?php endif; ?>
+</label>
 
-            <div class="phone-repeater-list">
-                <?php foreach ($values as $index => $phone) : ?>
-                    <div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                        <input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" value="<?php echo esc_attr($phone['display']); ?>" class="phone-display" style="width: 100%; margin-bottom: 5px;" />
-                        <input type="text" placeholder="Номер для ссылки (напр: 84912777098)" value="<?php echo esc_attr($phone['link']); ?>" class="phone-link" style="width: 100%; margin-bottom: 5px;" />
-                        <button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+<div class="phone-repeater-list">
+	<?php foreach ($values as $index => $phone) : ?>
+	<div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+		<input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" value="<?php echo esc_attr($phone['display']); ?>" class="phone-display" style="width: 100%; margin-bottom: 5px;" />
+		<input type="text" placeholder="Номер для ссылки (напр: 84912777098)" value="<?php echo esc_attr($phone['link']); ?>" class="phone-link" style="width: 100%; margin-bottom: 5px;" />
+		<button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>
+	</div>
+	<?php endforeach; ?>
+</div>
 
-            <button type="button" class="button add-phone" style="margin-top: 10px;">+ Добавить телефон</button>
+<button type="button" class="button add-phone" style="margin-top: 10px;">+ Добавить телефон</button>
 
-            <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="phone-repeater-value" />
+<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="phone-repeater-value" />
 
-            <script type="text/javascript">
+<script type="text/javascript">
                 jQuery(document).ready(function($) {
                     var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
 
@@ -948,7 +947,7 @@ if (class_exists('WP_Customize_Control')) {
                     });
                 });
             </script>
-    <?php
+<?php
         }
     }
 
@@ -967,27 +966,27 @@ if (class_exists('WP_Customize_Control')) {
                 $values = array();
             }
     ?>
-            <label>
-                <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
-                <?php if (!empty($this->description)) : ?>
-                    <span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
-                <?php endif; ?>
-            </label>
+<label>
+	<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+	<?php if (!empty($this->description)) : ?>
+	<span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
+	<?php endif; ?>
+</label>
 
-            <div class="email-repeater-list">
-                <?php foreach ($values as $index => $email) : ?>
-                    <div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                        <input type="email" placeholder="Email адрес" value="<?php echo esc_attr($email['email']); ?>" class="email-address" style="width: 100%; margin-bottom: 5px;" />
-                        <button type="button" class="button remove-email" style="color: #a00;">Удалить</button>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+<div class="email-repeater-list">
+	<?php foreach ($values as $index => $email) : ?>
+	<div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+		<input type="email" placeholder="Email адрес" value="<?php echo esc_attr($email['email']); ?>" class="email-address" style="width: 100%; margin-bottom: 5px;" />
+		<button type="button" class="button remove-email" style="color: #a00;">Удалить</button>
+	</div>
+	<?php endforeach; ?>
+</div>
 
-            <button type="button" class="button add-email" style="margin-top: 10px;">+ Добавить email</button>
+<button type="button" class="button add-email" style="margin-top: 10px;">+ Добавить email</button>
 
-            <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="email-repeater-value" />
+<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="email-repeater-value" />
 
-            <script type="text/javascript">
+<script type="text/javascript">
                 jQuery(document).ready(function($) {
                     var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
 
@@ -1022,7 +1021,7 @@ if (class_exists('WP_Customize_Control')) {
                     });
                 });
             </script>
-    <?php
+<?php
         }
     }
 }
@@ -1192,12 +1191,12 @@ function my_extra_fields() {
 /* Код блока галереи */
 function extra_fields_box_func( $post ){
 	for ($i=1; $i<=9; $i++) { ?>
-		<label>URL&#160;изображения <?php echo $i; ?>:</label>
-		<input type="text" name="extra[img-<?php echo $i; ?>]" value="<?php echo get_post_meta($post->ID, '_img-'.$i, 1); ?>" style="width: 100%;">
-		<div style="clear: both;"></div>
-	<?php } ?>
-		<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
-	<?php
+<label>URL&#160;изображения <?php echo $i; ?>:</label>
+<input type="text" name="extra[img-<?php echo $i; ?>]" value="<?php echo get_post_meta($post->ID, '_img-'.$i, 1); ?>" style="width: 100%;">
+<div style="clear: both;"></div>
+<?php } ?>
+<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
+<?php
 }
 
 // включаем обновление полей при сохранении
@@ -1230,6 +1229,7 @@ function my_extra_fields_update( $post_id ){
 
 
 
+/*** BREADCRUMBS ***/
 /* Настройки хлебных крошек: иконка главной вместо текста, разделитель */
 add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
@@ -1253,3 +1253,4 @@ add_filter( 'woocommerce_get_breadcrumb', function( $crumbs ) {
 	}
 	return $crumbs;
 } );
+/*** END BREADCRUMBS ***/
