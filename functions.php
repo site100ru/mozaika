@@ -188,16 +188,10 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 /* Register a new menu */
 add_action( 'after_setup_theme', function() {
 	register_nav_menus( [
-		'main-menu' => 'Main menu',
-		'mobail-header-collapse' => 'Mobail header collapse',
-		'sliding-header-collapse' => 'Sliding header collapse',
-		'contacts-desktop-menu' => 'Contacts desktop menu',
-		'footer-right' => 'footer-right',
-		'footer-left' => 'footer-left',
-		//'menu-main-menu-2' => 'Menu main menu 2',
-		//'menu-main-menu-3' => 'Menu main menu 3',
-		//'contacts-menu-2' => 'Contacts menu 2',
-		//'navbarSupportedContent2' => 'navbarSupportedContent2'
+		'main-menu'             => 'Главное меню',
+		'contacts-desktop-menu' => 'Меню в подвале (десктоп)',
+		'footer-right'          => 'Меню в подвале (правая колонка)',
+		'footer-left'           => 'Меню в подвале (левая колонка)',
 	] );
 } );
 
@@ -868,6 +862,15 @@ function mytheme_customize_register($wp_customize)
 }
 add_action('customize_register', 'mytheme_customize_register');
 
+/**
+ * Возвращает строку, в которой разрешён только тег <br> и <br />.
+ * Все остальные HTML-теги экранируются.
+ *
+ */
+function mytheme_kses_br( string $text ): string {
+    return wp_kses( $text, [ 'br' => [] ] );
+}
+
 
 /**
  * Кастомные контролы - загружаются только в контексте кастомайзера
@@ -910,43 +913,43 @@ if (class_exists('WP_Customize_Control')) {
 <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="phone-repeater-value" />
 
 <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
+                        jQuery(document).ready(function($) {
+                            var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
 
-                    function updateValue() {
-                        var phones = [];
-                        control.find('.phone-repeater-item').each(function() {
-                            var display = $(this).find('.phone-display').val();
-                            var link = $(this).find('.phone-link').val();
-                            if (display || link) {
-                                phones.push({
-                                    display: display,
-                                    link: link
+                            function updateValue() {
+                                var phones = [];
+                                control.find('.phone-repeater-item').each(function() {
+                                    var display = $(this).find('.phone-display').val();
+                                    var link = $(this).find('.phone-link').val();
+                                    if (display || link) {
+                                        phones.push({
+                                            display: display,
+                                            link: link
+                                        });
+                                    }
                                 });
+                                control.find('.phone-repeater-value').val(JSON.stringify(phones)).trigger('change');
                             }
+
+                            control.on('click', '.add-phone', function() {
+                                var template = '<div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
+                                    '<input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" class="phone-display" style="width: 100%; margin-bottom: 5px;" />' +
+                                    '<input type="text" placeholder="Номер для ссылки (напр: 84912777098)" class="phone-link" style="width: 100%; margin-bottom: 5px;" />' +
+                                    '<button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>' +
+                                    '</div>';
+                                control.find('.phone-repeater-list').append(template);
+                            });
+
+                            control.on('click', '.remove-phone', function() {
+                                $(this).closest('.phone-repeater-item').remove();
+                                updateValue();
+                            });
+
+                            control.on('input', '.phone-display, .phone-link', function() {
+                                updateValue();
+                            });
                         });
-                        control.find('.phone-repeater-value').val(JSON.stringify(phones)).trigger('change');
-                    }
-
-                    control.on('click', '.add-phone', function() {
-                        var template = '<div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
-                            '<input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" class="phone-display" style="width: 100%; margin-bottom: 5px;" />' +
-                            '<input type="text" placeholder="Номер для ссылки (напр: 84912777098)" class="phone-link" style="width: 100%; margin-bottom: 5px;" />' +
-                            '<button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>' +
-                            '</div>';
-                        control.find('.phone-repeater-list').append(template);
-                    });
-
-                    control.on('click', '.remove-phone', function() {
-                        $(this).closest('.phone-repeater-item').remove();
-                        updateValue();
-                    });
-
-                    control.on('input', '.phone-display, .phone-link', function() {
-                        updateValue();
-                    });
-                });
-            </script>
+                    </script>
 <?php
         }
     }
@@ -965,7 +968,7 @@ if (class_exists('WP_Customize_Control')) {
             if (!is_array($values)) {
                 $values = array();
             }
-    ?>
+        ?>
 <label>
 	<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
 	<?php if (!empty($this->description)) : ?>
@@ -987,40 +990,40 @@ if (class_exists('WP_Customize_Control')) {
 <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="email-repeater-value" />
 
 <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
+                            jQuery(document).ready(function($) {
+                                var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
 
-                    function updateValue() {
-                        var emails = [];
-                        control.find('.email-repeater-item').each(function() {
-                            var email = $(this).find('.email-address').val();
-                            if (email) {
-                                emails.push({
-                                    email: email
+                                function updateValue() {
+                                    var emails = [];
+                                    control.find('.email-repeater-item').each(function() {
+                                        var email = $(this).find('.email-address').val();
+                                        if (email) {
+                                            emails.push({
+                                                email: email
+                                            });
+                                        }
+                                    });
+                                    control.find('.email-repeater-value').val(JSON.stringify(emails)).trigger('change');
+                                }
+
+                                control.on('click', '.add-email', function() {
+                                    var template = '<div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
+                                        '<input type="email" placeholder="Email адрес" class="email-address" style="width: 100%; margin-bottom: 5px;" />' +
+                                        '<button type="button" class="button remove-email" style="color: #a00;">Удалить</button>' +
+                                        '</div>';
+                                    control.find('.email-repeater-list').append(template);
                                 });
-                            }
-                        });
-                        control.find('.email-repeater-value').val(JSON.stringify(emails)).trigger('change');
-                    }
 
-                    control.on('click', '.add-email', function() {
-                        var template = '<div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
-                            '<input type="email" placeholder="Email адрес" class="email-address" style="width: 100%; margin-bottom: 5px;" />' +
-                            '<button type="button" class="button remove-email" style="color: #a00;">Удалить</button>' +
-                            '</div>';
-                        control.find('.email-repeater-list').append(template);
-                    });
+                                control.on('click', '.remove-email', function() {
+                                    $(this).closest('.email-repeater-item').remove();
+                                    updateValue();
+                                });
 
-                    control.on('click', '.remove-email', function() {
-                        $(this).closest('.email-repeater-item').remove();
-                        updateValue();
-                    });
-
-                    control.on('input', '.email-address', function() {
-                        updateValue();
-                    });
-                });
-            </script>
+                                control.on('input', '.email-address', function() {
+                                    updateValue();
+                                });
+                            });
+                        </script>
 <?php
         }
     }
