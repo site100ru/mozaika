@@ -1881,7 +1881,7 @@ strong {
 	transition: .25s;
 }
 
-.contacts-section-4 #menu-main-menu-2 .nav-item.d-none.d-xl-inline .nav-link {
+.contacts-section-4 .nav-item.d-none.d-xl-inline .nav-link {
 	padding-inline: 0;
 }
 

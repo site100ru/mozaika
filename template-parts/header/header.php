@@ -70,6 +70,7 @@ $max_link        = mytheme_get_max();
 						<a class="top-menu-tel nav-link" href="tel:<?php echo esc_attr($add_phone_link); ?>">
 							<div style="display: flex;">
 								<div class="nav-li-float-left">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
 								</div>
 								<div class="nav-li-float-right" style="min-width: 128px;">
 									<?php echo esc_html($add_phone); ?>
@@ -138,42 +139,42 @@ $max_link        = mytheme_get_max();
 
 			<div class="collapse navbar-collapse" id="mobail-header-collapse">
 				<?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'main-menu',
-                        'container' => false,
-                        'menu_class' => '',
-                        'fallback_cb' => '__return_false',
-                        'items_wrap' => '
-                            <ul id="%1$s" class="navbar-nav align-items-center ms-auto mb-2 mb-lg-0 %2$s">%3$s
-                                <!-- Mobile menu -->
-                                <li class="nav-item d-lg-none">
-                                    <a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">Вызов замерщика</a>
-                                </li>
-                                <li class="nav-item d-lg-none">
-                                    ' . ($address ? '
-                                    <div style="font-size: 12px; font-family: HelveticaNeueCyr-Light; text-transform: none;">
-                                        <img src="' . get_template_directory_uri() . '/img/ico/location-ico.svg" style="width: 10px;" class="me-1">
-                                        <span>' . esc_html($address) . '</span>
-                                    </div>' : '') . '
-                                    ' . ($main_phone && $main_phone_link ? '
-                                    <a class="nav-link top-menu-tel pt-1 pb-1" href="tel:' . esc_attr($main_phone_link) . '">' . esc_html($main_phone) . '</a>' : '') . '
-                                    ' . ($job_time ? '
-                                    <div class="mb-2" style="font-size: 12px; font-family: HelveticaNeueCyr-Light; text-transform: none;">
-                                        <img src="' . get_template_directory_uri() . '/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">' . esc_html($job_time) . '
-                                    </div>' : '') . '
-                                </li>
-                                <li class="nav-item d-lg-none pb-4">
-                                    ' . ($whatsapp ? '<a class="ico-button pe-2" href="' . esc_url($whatsapp) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/whatsapp-ico.svg"></a>' : '') . '
-                                    ' . ($telegram ? '<a class="ico-button pe-2" href="' . esc_url($telegram) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/telegram-ico.svg"></a>' : '') . '
-                                    ' . ($max_link ? '<a class="ico-button pe-0" href="' . esc_url($max_link) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/max.svg"></a>' : '') . '
-                                </li>
-                                <!-- End mobile menu -->
-                            </ul>
-                        ',
-                        'depth' => 2,
-                        'walker' => new bootstrap_5_wp_nav_menu_walker()
-                    ));
-                    ?>
+					wp_nav_menu(array(
+						'theme_location' => 'main-menu',
+						'container' => false,
+						'menu_class' => '',
+						'fallback_cb' => '__return_false',
+						'items_wrap' => '
+							<ul id="%1$s" class="navbar-nav align-items-center ms-auto mb-2 mb-lg-0 %2$s">%3$s
+								<!-- Mobile menu -->
+								<li class="nav-item d-lg-none">
+										<a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">Вызов замерщика</a>
+								</li>
+								<li class="nav-item d-lg-none">
+										' . ($address ? '
+										<div style="font-size: 12px; font-family: HelveticaNeueCyr-Light; text-transform: none;">
+												<img src="' . get_template_directory_uri() . '/img/ico/location-ico.svg" style="width: 10px;" class="me-1">
+												<span>' . esc_html($address) . '</span>
+										</div>' : '') . '
+										' . ($main_phone && $main_phone_link ? '
+										<a class="nav-link top-menu-tel pt-1 pb-1" href="tel:' . esc_attr($main_phone_link) . '">' . esc_html($main_phone) . '</a>' : '') . '
+										' . ($job_time ? '
+										<div class="mb-2" style="font-size: 12px; font-family: HelveticaNeueCyr-Light; text-transform: none;">
+												<img src="' . get_template_directory_uri() . '/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">' . esc_html($job_time) . '
+										</div>' : '') . '
+								</li>
+								<li class="nav-item d-lg-none pb-4">
+										' . ($whatsapp ? '<a class="ico-button pe-2" href="' . esc_url($whatsapp) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/whatsapp-ico.svg"></a>' : '') . '
+										' . ($telegram ? '<a class="ico-button pe-2" href="' . esc_url($telegram) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/telegram-ico.svg"></a>' : '') . '
+										' . ($max_link ? '<a class="ico-button pe-0" href="' . esc_url($max_link) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/max.svg"></a>' : '') . '
+								</li>
+								<!-- End mobile menu -->
+							</ul>
+						',
+						'depth' => 2,
+						'walker' => new bootstrap_5_wp_nav_menu_walker()
+					));
+				?>
 			</div>
 
 		</div>
@@ -202,42 +203,42 @@ $max_link        = mytheme_get_max();
 
 			<div class="collapse navbar-collapse" id="sliding-header-collapse">
 				<?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'main-menu',
-                        'container' => false,
-                        'menu_class' => '',
-                        'fallback_cb' => '__return_false',
-                        'items_wrap' => '
-                            <ul id="%1$s" class="navbar-nav ms-auto mb-2 mb-lg-0 %2$s">%3$s
-                                <!-- Mobile menu -->
-                                <li class="nav-item d-lg-none">
-                                    <a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">Вызов замерщика</a>
-                                </li>
-                                <li class="nav-item d-lg-none">
-                                    ' . ($address ? '
-                                    <div style="font-size: 12px; font-family: Gilroy-Light; text-transform: none;">
-                                        <img src="' . get_template_directory_uri() . '/img/ico/location-ico.svg" style="width: 10px; position: relative; top: -2px;" class="me-1">
-                                        <span>' . esc_html($address) . '</span>
-                                    </div>' : '') . '
-                                    ' . ($main_phone && $main_phone_link ? '
-                                    <a class="nav-link top-menu-tel pt-1 pb-1" href="tel:' . esc_attr($main_phone_link) . '">' . esc_html($main_phone) . '</a>' : '') . '
-                                    ' . ($job_time ? '
-                                    <div class="mb-2" style="font-size: 12px; font-family: Gilroy-Light; text-transform: none;">
-                                        <img src="' . get_template_directory_uri() . '/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 3px;" class="me-1 mb-2">' . esc_html($job_time) . '
-                                    </div>' : '') . '
-                                </li>
-                                <li class="nav-item d-lg-none pb-2">
-                                    ' . ($whatsapp ? '<a class="ico-button pe-2" href="' . esc_url($whatsapp) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/whatsapp-ico.svg"></a>' : '') . '
-                                    ' . ($telegram ? '<a class="ico-button pe-2" href="' . esc_url($telegram) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/telegram-ico.svg"></a>' : '') . '
-                                    ' . ($max_link ? '<a class="ico-button pe-0" href="' . esc_url($max_link) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/max.svg"></a>' : '') . '
-                                </li>
-                                <!-- End mobile menu -->
-                            </ul>
-                            ',
-                        'depth' => 2,
-                        'walker' => new bootstrap_5_wp_nav_menu_walker()
-                    ));
-                    ?>
+					wp_nav_menu(array(
+						'theme_location' => 'main-menu',
+						'container' => false,
+						'menu_class' => '',
+						'fallback_cb' => '__return_false',
+						'items_wrap' => '
+							<ul id="%1$s" class="navbar-nav ms-auto mb-2 mb-lg-0 %2$s">%3$s
+								<!-- Mobile menu -->
+								<li class="nav-item d-lg-none">
+										<a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">Вызов замерщика</a>
+								</li>
+								<li class="nav-item d-lg-none">
+									' . ($address ? '
+									<div style="font-size: 12px; font-family: Gilroy-Light; text-transform: none;">
+											<img src="' . get_template_directory_uri() . '/img/ico/location-ico.svg" style="width: 10px; position: relative; top: -2px;" class="me-1">
+											<span>' . esc_html($address) . '</span>
+									</div>' : '') . '
+									' . ($main_phone && $main_phone_link ? '
+									<a class="nav-link top-menu-tel pt-1 pb-1" href="tel:' . esc_attr($main_phone_link) . '">' . esc_html($main_phone) . '</a>' : '') . '
+									' . ($job_time ? '
+									<div class="mb-2" style="font-size: 12px; font-family: Gilroy-Light; text-transform: none;">
+											<img src="' . get_template_directory_uri() . '/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 3px;" class="me-1 mb-2">' . esc_html($job_time) . '
+									</div>' : '') . '
+								</li>
+								<li class="nav-item d-lg-none pb-2">
+									' . ($whatsapp ? '<a class="ico-button pe-2" href="' . esc_url($whatsapp) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/whatsapp-ico.svg"></a>' : '') . '
+									' . ($telegram ? '<a class="ico-button pe-2" href="' . esc_url($telegram) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/telegram-ico.svg"></a>' : '') . '
+									' . ($max_link ? '<a class="ico-button pe-0" href="' . esc_url($max_link) . '" target="_blank"><img src="' . get_template_directory_uri() . '/img/ico/max.svg"></a>' : '') . '
+								</li>
+								<!-- End mobile menu -->
+							</ul>
+							',
+						'depth' => 2,
+						'walker' => new bootstrap_5_wp_nav_menu_walker()
+					));
+				?>
 			</div>
 
 		</div>

@@ -79,7 +79,10 @@
 										</svg>
 									</span>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="<?php echo get_term_link($term->term_id); ?>"><?php echo $term->name; ?></a>
+								<li class="nav-item">
+									<a class="nav-link <?php echo ($term->name === $current_category_name) ? 'active' : ''; ?>" href="<?php echo get_term_link($term->term_id); ?>">
+										<?php echo $term->name; ?>
+									</a>
 								</li>
 								<?php }
 								?>

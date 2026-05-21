@@ -45,7 +45,7 @@
 					<h2 class="text-md-center mb-3">Контакты</h2>
 					<img src="<?php echo get_template_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5 mx-md-auto d-block">
 					<div class="container" style="margin-top: 60px;">
-						<div class="row contact-p contact-box-info" style="font-family: 'Gilroy-Regular';">
+						<div class="row gap-3" style="font-family: 'Gilroy-Regular';">
 
 							<!-- Адрес и время работы -->
 							<?php if (mytheme_get_address_full() || mytheme_get_job_time()) : ?>
@@ -75,6 +75,37 @@
 							</div>
 							<?php endif; ?>
 
+							<!-- Дополнительные телефоны -->
+							<?php
+							$phones_extra = mytheme_get_phones_extra();
+							if (mytheme_get_phone('additional') || !empty($phones_extra)) :
+							?>
+							<div class="col-md-3 contact-info">
+								<?php if (mytheme_get_phone('additional') && mytheme_get_phone_link('additional')) : ?>
+								<a href="tel:<?php echo esc_attr(mytheme_get_phone_link('additional')); ?>" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
+									</div>
+									<div class="nav-li-float-right">
+										<span><?php echo esc_html(mytheme_get_phone('additional')); ?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</a>
+								<?php endif; ?>
+								<?php foreach ($phones_extra as $phone) : ?>
+								<a href="tel:<?php echo esc_attr($phone['link']); ?>" style="display: flex;" class="align-items-center text-dark">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
+									</div>
+									<div class="nav-li-float-right">
+										<span><?php echo esc_html($phone['display']); ?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</a>
+								<?php endforeach; ?>
+							</div>
+							<?php endif; ?>
+
 							<!-- Основной телефон и обратный звонок -->
 							<?php if (mytheme_get_phone('main') && mytheme_get_phone_link('main')) : ?>
 							<div class="col-md-3 contact-info">
@@ -96,37 +127,6 @@
 									</div>
 									<div style="clear: both;"></div>
 								</button>
-							</div>
-							<?php endif; ?>
-
-							<!-- Дополнительные телефоны -->
-							<?php
-							$phones_extra = mytheme_get_phones_extra();
-							if (mytheme_get_phone('additional') || !empty($phones_extra)) :
-							?>
-							<div class="col-md-3 contact-info">
-								<?php if (mytheme_get_phone('additional') && mytheme_get_phone_link('additional')) : ?>
-								<a href="tel:<?php echo esc_attr(mytheme_get_phone_link('additional')); ?>" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span><?php echo esc_html(mytheme_get_phone('additional')); ?></span>
-									</div>
-									<div style="clear: both;"></div>
-								</a>
-								<?php endif; ?>
-								<?php foreach ($phones_extra as $phone) : ?>
-								<a href="tel:<?php echo esc_attr($phone['link']); ?>" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span><?php echo esc_html($phone['display']); ?></span>
-									</div>
-									<div style="clear: both;"></div>
-								</a>
-								<?php endforeach; ?>
 							</div>
 							<?php endif; ?>
 
