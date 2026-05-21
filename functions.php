@@ -142,7 +142,23 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 		$attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
 		$attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
-		$active_class = ($item->current || $item->current_item_ancestor || in_array("current_page_parent", $item->classes, true) || in_array("current-post-ancestor", $item->classes, true)) ? 'active' : '';
+		$active_class = ($item->current 
+            || $item->current_item_ancestor 
+            || in_array("current_page_parent", $item->classes, true) 
+            || in_array("current-post-ancestor", $item->classes, true)
+        ) ? 'active' : '';
+
+        if ( empty($active_class) ) {
+            $item_url = trailingslashit( $item->url );
+            $portfolio_url = trailingslashit( get_post_type_archive_link('portfolio') );
+            
+            if ( !empty($portfolio_url) && $item_url === $portfolio_url ) {
+                if ( is_post_type_archive('portfolio') || is_tax('portfolio-cat') || get_post_type() === 'portfolio' ) {
+                    $active_class = 'active';
+                }
+            }
+        }
+
 		$nav_link_class = ( $depth > 0 ) ? 'dropdown-item ' : 'nav-link ';
 		$attributes .= ( $args->walker->has_children ) ? ' class="'. $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="'. $nav_link_class . $active_class . '"';
 
@@ -188,16 +204,10 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 /* Register a new menu */
 add_action( 'after_setup_theme', function() {
 	register_nav_menus( [
-		'main-menu' => 'Main menu',
-		'mobail-header-collapse' => 'Mobail header collapse',
-		'sliding-header-collapse' => 'Sliding header collapse',
-		'contacts-desktop-menu' => 'Contacts desktop menu',
-		'footer-right' => 'footer-right',
-		'footer-left' => 'footer-left',
-		//'menu-main-menu-2' => 'Menu main menu 2',
-		//'menu-main-menu-3' => 'Menu main menu 3',
-		//'contacts-menu-2' => 'Contacts menu 2',
-		//'navbarSupportedContent2' => 'navbarSupportedContent2'
+		'main-menu'             => 'Главное меню',
+		'contacts-desktop-menu' => 'Меню в подвале (десктоп)',
+		'footer-right'          => 'Меню в подвале (правая колонка)',
+		'footer-left'           => 'Меню в подвале (левая колонка)',
 	] );
 } );
 
@@ -868,6 +878,15 @@ function mytheme_customize_register($wp_customize)
 }
 add_action('customize_register', 'mytheme_customize_register');
 
+/**
+ * Возвращает строку, в которой разрешён только тег <br> и <br />.
+ * Все остальные HTML-теги экранируются.
+ *
+ */
+function mytheme_kses_br( string $text ): string {
+    return wp_kses( $text, [ 'br' => [] ] );
+}
+
 
 /**
  * Кастомные контролы - загружаются только в контексте кастомайзера
@@ -888,66 +907,66 @@ if (class_exists('WP_Customize_Control')) {
                 $values = array();
             }
     ?>
-            <label>
-                <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
-                <?php if (!empty($this->description)) : ?>
-                    <span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
-                <?php endif; ?>
-            </label>
+<label>
+	<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+	<?php if (!empty($this->description)) : ?>
+	<span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
+	<?php endif; ?>
+</label>
 
-            <div class="phone-repeater-list">
-                <?php foreach ($values as $index => $phone) : ?>
-                    <div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                        <input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" value="<?php echo esc_attr($phone['display']); ?>" class="phone-display" style="width: 100%; margin-bottom: 5px;" />
-                        <input type="text" placeholder="Номер для ссылки (напр: 84912777098)" value="<?php echo esc_attr($phone['link']); ?>" class="phone-link" style="width: 100%; margin-bottom: 5px;" />
-                        <button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+<div class="phone-repeater-list">
+	<?php foreach ($values as $index => $phone) : ?>
+	<div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+		<input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" value="<?php echo esc_attr($phone['display']); ?>" class="phone-display" style="width: 100%; margin-bottom: 5px;" />
+		<input type="text" placeholder="Номер для ссылки (напр: 84912777098)" value="<?php echo esc_attr($phone['link']); ?>" class="phone-link" style="width: 100%; margin-bottom: 5px;" />
+		<button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>
+	</div>
+	<?php endforeach; ?>
+</div>
 
-            <button type="button" class="button add-phone" style="margin-top: 10px;">+ Добавить телефон</button>
+<button type="button" class="button add-phone" style="margin-top: 10px;">+ Добавить телефон</button>
 
-            <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="phone-repeater-value" />
+<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="phone-repeater-value" />
 
-            <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
+<script type="text/javascript">
+                        jQuery(document).ready(function($) {
+                            var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
 
-                    function updateValue() {
-                        var phones = [];
-                        control.find('.phone-repeater-item').each(function() {
-                            var display = $(this).find('.phone-display').val();
-                            var link = $(this).find('.phone-link').val();
-                            if (display || link) {
-                                phones.push({
-                                    display: display,
-                                    link: link
+                            function updateValue() {
+                                var phones = [];
+                                control.find('.phone-repeater-item').each(function() {
+                                    var display = $(this).find('.phone-display').val();
+                                    var link = $(this).find('.phone-link').val();
+                                    if (display || link) {
+                                        phones.push({
+                                            display: display,
+                                            link: link
+                                        });
+                                    }
                                 });
+                                control.find('.phone-repeater-value').val(JSON.stringify(phones)).trigger('change');
                             }
+
+                            control.on('click', '.add-phone', function() {
+                                var template = '<div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
+                                    '<input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" class="phone-display" style="width: 100%; margin-bottom: 5px;" />' +
+                                    '<input type="text" placeholder="Номер для ссылки (напр: 84912777098)" class="phone-link" style="width: 100%; margin-bottom: 5px;" />' +
+                                    '<button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>' +
+                                    '</div>';
+                                control.find('.phone-repeater-list').append(template);
+                            });
+
+                            control.on('click', '.remove-phone', function() {
+                                $(this).closest('.phone-repeater-item').remove();
+                                updateValue();
+                            });
+
+                            control.on('input', '.phone-display, .phone-link', function() {
+                                updateValue();
+                            });
                         });
-                        control.find('.phone-repeater-value').val(JSON.stringify(phones)).trigger('change');
-                    }
-
-                    control.on('click', '.add-phone', function() {
-                        var template = '<div class="phone-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
-                            '<input type="text" placeholder="Номер для отображения (напр: 8 (4912) 77-70-98)" class="phone-display" style="width: 100%; margin-bottom: 5px;" />' +
-                            '<input type="text" placeholder="Номер для ссылки (напр: 84912777098)" class="phone-link" style="width: 100%; margin-bottom: 5px;" />' +
-                            '<button type="button" class="button remove-phone" style="color: #a00;">Удалить</button>' +
-                            '</div>';
-                        control.find('.phone-repeater-list').append(template);
-                    });
-
-                    control.on('click', '.remove-phone', function() {
-                        $(this).closest('.phone-repeater-item').remove();
-                        updateValue();
-                    });
-
-                    control.on('input', '.phone-display, .phone-link', function() {
-                        updateValue();
-                    });
-                });
-            </script>
-    <?php
+                    </script>
+<?php
         }
     }
 
@@ -965,63 +984,63 @@ if (class_exists('WP_Customize_Control')) {
             if (!is_array($values)) {
                 $values = array();
             }
-    ?>
-            <label>
-                <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
-                <?php if (!empty($this->description)) : ?>
-                    <span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
-                <?php endif; ?>
-            </label>
+        ?>
+<label>
+	<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+	<?php if (!empty($this->description)) : ?>
+	<span class="description customize-control-description"><?php echo esc_html($this->description); ?></span>
+	<?php endif; ?>
+</label>
 
-            <div class="email-repeater-list">
-                <?php foreach ($values as $index => $email) : ?>
-                    <div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                        <input type="email" placeholder="Email адрес" value="<?php echo esc_attr($email['email']); ?>" class="email-address" style="width: 100%; margin-bottom: 5px;" />
-                        <button type="button" class="button remove-email" style="color: #a00;">Удалить</button>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+<div class="email-repeater-list">
+	<?php foreach ($values as $index => $email) : ?>
+	<div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+		<input type="email" placeholder="Email адрес" value="<?php echo esc_attr($email['email']); ?>" class="email-address" style="width: 100%; margin-bottom: 5px;" />
+		<button type="button" class="button remove-email" style="color: #a00;">Удалить</button>
+	</div>
+	<?php endforeach; ?>
+</div>
 
-            <button type="button" class="button add-email" style="margin-top: 10px;">+ Добавить email</button>
+<button type="button" class="button add-email" style="margin-top: 10px;">+ Добавить email</button>
 
-            <input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="email-repeater-value" />
+<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr($this->value()); ?>" class="email-repeater-value" />
 
-            <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
+<script type="text/javascript">
+                            jQuery(document).ready(function($) {
+                                var control = $('#customize-control-<?php echo esc_js($this->id); ?>');
 
-                    function updateValue() {
-                        var emails = [];
-                        control.find('.email-repeater-item').each(function() {
-                            var email = $(this).find('.email-address').val();
-                            if (email) {
-                                emails.push({
-                                    email: email
+                                function updateValue() {
+                                    var emails = [];
+                                    control.find('.email-repeater-item').each(function() {
+                                        var email = $(this).find('.email-address').val();
+                                        if (email) {
+                                            emails.push({
+                                                email: email
+                                            });
+                                        }
+                                    });
+                                    control.find('.email-repeater-value').val(JSON.stringify(emails)).trigger('change');
+                                }
+
+                                control.on('click', '.add-email', function() {
+                                    var template = '<div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
+                                        '<input type="email" placeholder="Email адрес" class="email-address" style="width: 100%; margin-bottom: 5px;" />' +
+                                        '<button type="button" class="button remove-email" style="color: #a00;">Удалить</button>' +
+                                        '</div>';
+                                    control.find('.email-repeater-list').append(template);
                                 });
-                            }
-                        });
-                        control.find('.email-repeater-value').val(JSON.stringify(emails)).trigger('change');
-                    }
 
-                    control.on('click', '.add-email', function() {
-                        var template = '<div class="email-repeater-item" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">' +
-                            '<input type="email" placeholder="Email адрес" class="email-address" style="width: 100%; margin-bottom: 5px;" />' +
-                            '<button type="button" class="button remove-email" style="color: #a00;">Удалить</button>' +
-                            '</div>';
-                        control.find('.email-repeater-list').append(template);
-                    });
+                                control.on('click', '.remove-email', function() {
+                                    $(this).closest('.email-repeater-item').remove();
+                                    updateValue();
+                                });
 
-                    control.on('click', '.remove-email', function() {
-                        $(this).closest('.email-repeater-item').remove();
-                        updateValue();
-                    });
-
-                    control.on('input', '.email-address', function() {
-                        updateValue();
-                    });
-                });
-            </script>
-    <?php
+                                control.on('input', '.email-address', function() {
+                                    updateValue();
+                                });
+                            });
+                        </script>
+<?php
         }
     }
 }
@@ -1191,12 +1210,12 @@ function my_extra_fields() {
 /* Код блока галереи */
 function extra_fields_box_func( $post ){
 	for ($i=1; $i<=9; $i++) { ?>
-		<label>URL&#160;изображения <?php echo $i; ?>:</label>
-		<input type="text" name="extra[img-<?php echo $i; ?>]" value="<?php echo get_post_meta($post->ID, '_img-'.$i, 1); ?>" style="width: 100%;">
-		<div style="clear: both;"></div>
-	<?php } ?>
-		<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
-	<?php
+<label>URL&#160;изображения <?php echo $i; ?>:</label>
+<input type="text" name="extra[img-<?php echo $i; ?>]" value="<?php echo get_post_meta($post->ID, '_img-'.$i, 1); ?>" style="width: 100%;">
+<div style="clear: both;"></div>
+<?php } ?>
+<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
+<?php
 }
 
 // включаем обновление полей при сохранении

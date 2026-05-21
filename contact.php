@@ -16,242 +16,14 @@
 		<div class="jobs-home-section" style="min-height: 400px;"></div>
 		<!-- <div class="overlay"></div> -->
 		<div id="sp-home" class="scroll-points"></div>
-        <header class="d-none d-lg-block">
-            <!-- Header nav top -->
-            <nav class="header-nav-top navbar navbar-expand-lg navbar-light d-none d-lg-block py-0">
-                <div class="container">
-                    <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav ms-auto align-items-center">
-                            <li class="nav-item me-1 me-xxl-3">
-                                <a class="nav-link" href="#">
-                                    <div style="display: flex;">
-                                        <div class="nav-li-float-left">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/ico/location-ico.svg">
-                                        </div>
-                                        <div class="nav-li-float-right" >
-                                            гор. Рязань,<br>ул. Чапаева, 56
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item me-1 me-xxl-3">
-                                <a class="nav-link" href="#">
-                                    <div style="display: flex;">
-                                        <div class="nav-li-float-left">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/ico/clock-ico.svg">
-                                        </div>
-                                        <div class="nav-li-float-right" >
-                                            Пн-Сб: с 10.00-19.00<br>Вс: с 10.00-17.00
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item me-1 me-xxl-3">
-                                <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#callbackModal">
-                                    <div style="display: flex;">
-                                        <div class="nav-li-float-left">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/ico/callback-ico.svg">
-                                        </div>
-                                        <div class="nav-li-float-right max-width-1400 nav-wrap" >
-                                            Обратный звонок
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item me-1 me-xxl-4">
-                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">
-                                    <div style="display: flex;">      
-                                        <div class="nav-li-float-left">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/ico/calculator-ico.svg">
-                                        </div>
-                                        <div class="nav-li-float-right max-width-1400 nav-wrap" >
-                                            Рассчитать стоимость
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item me-1 me-xxl-4">
-                                <a class="top-menu-tel nav-link" href="tel:+74912777098">
-                                    <div style="display: flex;">
-                                        <div class="nav-li-float-left">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
-                                        </div>
-                                        <div class="nav-li-float-right" style="min-width: 128px;">
-                                            8 (4912) 77-70-98
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item me-1 me-xxl-4 d-none d-xl-block">
-                                <a class="top-menu-tel nav-link" href="tel:89511014610">
-                                    <div style="display: flex;">
-                                        <div class="nav-li-float-left">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
-                                        </div>
-                                        <div class="nav-li-float-right" style="min-width: 128px;">
-                                            8 (951) 101-46-10
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link ico-button" href="https://t.me/+79511014610" target="_blank">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/ico/telegram-ico.svg">
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link ico-button" href="https://wa.me/79511014610?web=1&app_absent=1" target="_blank">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/ico/whatsapp-ico.svg">
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link ico-button" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/ico/max.svg">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- /Header nav top -->
-            
-            <!-- Header nav bottom -->
-            <nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
-                <div class="container">
-                    <a class="navbar-brand" href="/">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/ico/logo-light.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
-                    </a>
-                    
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobail-header-collapse" aria-controls="mobail-header-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    
-                    <div class="collapse navbar-collapse" id="mobail-header-collapse">
-                        <?php
-                            wp_nav_menu(array(
-                                'theme_location' => 'mobail-header-collapse',
-                                'container' => false,
-                                'menu_class' => '',
-                                'fallback_cb' => '__return_false',
-                                'items_wrap' => '
-                                    <ul id="%1$s" class="navbar-nav align-items-center ms-auto mb-2 mb-lg-0 %2$s">%3$s
-                                        <!-- Mobile menu -->
-                                        <li class="nav-item d-lg-none">
-                                            <a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">Вызов замерщика</a>
-                                        </li>
-                                        <li class="nav-item d-lg-none">
-                                            <div style="font-size: 12px; font-family: HelveticaNeueCyr-Light; text-transform: none;">
-                                                <img src="'.get_template_directory_uri().'/img/ico/location-ico.svg" style="width: 10px;" class="me-1">
-                                                    <span>гор. Рязань, ул. Чапаева, 56</span>
-                                            </div>
-                                            <a class="nav-link top-menu-tel pt-1 pb-1" href="tel:89511014610">8 (951) 101-46-10</a>
-                                            <div class="mb-2" style="font-size: 12px; font-family: HelveticaNeueCyr-Light; text-transform: none;">
-                                                <img src="'.get_template_directory_uri().'/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">Пн-Сб: с 10.00-19.00, Вс: с 10.00-17.00
-                                            </div>
-                                        </li>
-                                        <li class="nav-item d-lg-none pb-4">
-                                            <a class="ico-button pe-2" href="https://wa.me/79511014610?web=1&app_absent=1" target="_blank">
-                                                <img src="'.get_template_directory_uri().'/img/ico/whatsapp-ico.svg">
-                                            </a>
-                                            <a class="ico-button pe-2" href="https://t.me/+79511014610" target="_blank">
-                                                <img src="'.get_template_directory_uri().'/img/ico/telegram-ico.svg">
-                                            </a>
-                                            <a class="ico-button pe-0" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                                                <img src="'.get_template_directory_uri().'/img/ico/max.svg">
-                                            </a>
-                                        </li>	
-                                        <!-- End mobile menu -->
-                                    </ul>
-                                ',
-                                'depth' => 2,
-                                'walker' => new bootstrap_5_wp_nav_menu_walker()
-                            ));
-                        ?>
-                    </div>
 
-                </div>
-            </nav>
-            <!-- /Header nav bottom -->
-        </header>
-		
-		
-		<header id="sliding-header" class="shadow">
-			<!-- Header nav bottom -->
-			<nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-1 py-lg-0">
-				<div class="container">
-					<a class="navbar-brand" href="/">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/ico/logo-dark.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
-                </a>
-					
-					<div class="d-lg-none">
-						<a class="top-menu-tel pt-1 pb-0" style="font-size: 14px;" href="tel:89511014610">8 (951) 101-46-10</a>
-						<div style="font-size: 10px; font-family: Gilroy-Light; text-transform: none;">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/ico/clock-ico.svg" style="width: 12px; position: relative; top: -1px;" class="me-1">Пн-Сб: с 10.00-19.00<br>Вс: с 10.00-17.00
-						</div>
-					</div>
-					
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sliding-header-collapse" aria-controls="sliding-header-collapse" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					
-					<div class="collapse navbar-collapse" id="sliding-header-collapse">
-						<?php
-							wp_nav_menu(array(
-								'theme_location' => 'sliding-header-collapse',
-								'container' => false,
-								'menu_class' => '',
-								'fallback_cb' => '__return_false',
-								'items_wrap' => '
-									<ul id="%1$s" class="navbar-nav ms-auto mb-2 mb-lg-0 %2$s">%3$s
-										<!-- Mobile menu -->
-										<li class="nav-item d-lg-none">
-											<a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">Вызов замерщика</a>
-										</li>
-										<li class="nav-item d-lg-none">
-											<div style="font-size: 12px; font-family: Gilroy-Light; text-transform: none;">
-												<img src="'. get_template_directory_uri().'/img/ico/location-ico.svg" style="width: 10px; position: relative; top: -2px;" class="me-1">
-												<span>гор. Рязань, ул. Чапаева, 56</span>
-											</div>
-											<a class="nav-link top-menu-tel pt-1 pb-1" href="tel:89511014610">8 (951) 101-46-10</a>
-											<div class="mb-2" style="font-size: 12px; font-family: Gilroy-Light; text-transform: none;">
-												<img src="'.get_template_directory_uri().'/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 3px;" class="me-1 mb-2">Пн-Сб: с 10.00-19.00, Вс: с 10.00-17.00
-											</div>
-										</li>
-										<li class="nav-item d-lg-none pb-2">
-											<a class="ico-button pe-2" href="https://wa.me/79511014610?web=1&app_absent=1" target="_blank">
-												<img src="'.get_template_directory_uri().'/img/ico/whatsapp-ico.svg">
-											</a>
-											<a class="ico-button pe-2" href="https://t.me/+79511014610" target="_blank">
-                                                <img src="'.get_template_directory_uri().'/img/ico/telegram-ico.svg">
-                                            </a>
-                                            <a class="ico-button pe-0" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                                                <img src="'.get_template_directory_uri().'/img/ico/max.svg">
-                                            </a>
-										</li>	
-										<!-- End mobile menu -->
-									</ul>
-								',
-								'depth' => 2,
-								'walker' => new bootstrap_5_wp_nav_menu_walker()
-							));
-						?>
-					</div>
+		<?php get_template_part('template-parts/header/header'); ?>
 
-				</div>
-			</nav>
-			<!-- /Header nav bottom -->
-		</header><!-- site-navbar -->
 		<div class="container">
 			<div class="row align-items-center home-section-height min-home-section-height">
 				<div class="col-xl-10 col-xxl-9">
 					<h1 class="home-title text-light">Контакты</h1>
-				</div>	
+				</div>
 			</div>
 		</div>
 	</div>
@@ -273,38 +45,79 @@
 					<h2 class="text-md-center mb-3">Контакты</h2>
 					<img src="<?php echo get_template_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5 mx-md-auto d-block">
 					<div class="container" style="margin-top: 60px;">
-						<div class="row contact-p contact-box-info" style="font-family: 'Gilroy-Regular';">
+						<div class="row gap-3" style="font-family: 'Gilroy-Regular';">
+
+							<!-- Адрес и время работы -->
+							<?php if (mytheme_get_address_full() || mytheme_get_job_time()) : ?>
 							<div class="col-md-3 contact-info" style="flex: 0 0 35%;">
+								<?php if (mytheme_get_address_full()) : ?>
 								<div style="display: flex; padding-bottom: 15px;" class="align-items-center">
 									<div class="nav-li-float-left">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/location-ico.svg">
 									</div>
 									<div class="nav-li-float-right">
-										<span style="text-wrap: wrap;">гор. Рязань, ул. Чапаева, д. 56, Мебельный центр "Базар" (ост. "Центральный рынок").</span>
+										<span style="text-wrap: wrap;"><?php echo wp_kses(mytheme_get_address_full(), ['br' => []]); ?></span>
 									</div>
 									<div style="clear: both;"></div>
 								</div>
+								<?php endif; ?>
+								<?php if (mytheme_get_job_time()) : ?>
 								<div style="display: flex;" class="align-items-center">
 									<div class="nav-li-float-left">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/clock-ico.svg">
 									</div>
 									<div class="nav-li-float-right">
-										<span>Пн-Сб 10:00-19:00, Вс 10:00-17:00</span>
+										<span><?php echo wp_kses(mytheme_get_job_time(), ['br' => []]); ?></span>
 									</div>
 									<div style="clear: both;"></div>
 								</div>
+								<?php endif; ?>
 							</div>
+							<?php endif; ?>
+
+							<!-- Дополнительные телефоны -->
+							<?php
+							$phones_extra = mytheme_get_phones_extra();
+							if (mytheme_get_phone('additional') || !empty($phones_extra)) :
+							?>
 							<div class="col-md-3 contact-info">
-								<a href="https://t.me/+79511014610" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark text-decoration-none">
+								<?php if (mytheme_get_phone('additional') && mytheme_get_phone_link('additional')) : ?>
+								<a href="tel:<?php echo esc_attr(mytheme_get_phone_link('additional')); ?>" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
+									</div>
+									<div class="nav-li-float-right">
+										<span><?php echo esc_html(mytheme_get_phone('additional')); ?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</a>
+								<?php endif; ?>
+								<?php foreach ($phones_extra as $phone) : ?>
+								<a href="tel:<?php echo esc_attr($phone['link']); ?>" style="display: flex;" class="align-items-center text-dark">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
+									</div>
+									<div class="nav-li-float-right">
+										<span><?php echo esc_html($phone['display']); ?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</a>
+								<?php endforeach; ?>
+							</div>
+							<?php endif; ?>
+
+							<!-- Основной телефон и обратный звонок -->
+							<?php if (mytheme_get_phone('main') && mytheme_get_phone_link('main')) : ?>
+							<div class="col-md-3 contact-info">
+								<a href="tel:<?php echo esc_attr(mytheme_get_phone_link('main')); ?>" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark text-decoration-none">
 									<div class="nav-li-float-left">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
 									</div>
 									<div class="nav-li-float-right">
-										<span>8 (951) 101-46-10</span>
+										<span><?php echo esc_html(mytheme_get_phone('main')); ?></span>
 									</div>
 									<div style="clear: both;"></div>
 								</a>
-								
 								<button data-bs-toggle="modal" data-bs-target="#callbackModal" style="display: flex;" class="btn p-0 align-items-center">
 									<div class="nav-li-float-left">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/callback-ico.svg">
@@ -315,74 +128,78 @@
 									<div style="clear: both;"></div>
 								</button>
 							</div>
+							<?php endif; ?>
+
+							<!-- Email -->
+							<?php if (mytheme_get_email()) : ?>
 							<div class="col-md-3 contact-info">
-								<a  href="tel:+74912527890" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span>8 (4912) 52-78-90</span>
-									</div>
-									<div style="clear: both;"></div>
-								</a>
-								<a  href="tel:+74912777098"  style="display: flex;" class="align-items-center text-dark">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span>8 (4912) 77-70-98</span>
-									</div>
-									<div style="clear: both;"></div>
-								</a>
-							</div>
-							<div class="col-md-3 contact-info">
-								<a href="mailto:mebel-dsever@yandex.ru" class="text-dark text-decoration-none" style="display: flex; padding-bottom: 15px;" class="align-items-center">
+								<a href="mailto:<?php echo esc_attr(mytheme_get_email()); ?>" class="text-dark text-decoration-none" style="display: flex; padding-bottom: 15px;" class="align-items-center">
 									<div class="nav-li-float-left">
 										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/email-ico.svg">
 									</div>
 									<div class="nav-li-float-right">
-										<span>mozaika62@bk.ru</span>
+										<span><?php echo esc_html(mytheme_get_email()); ?></span>
 									</div>
 									<div style="clear: both;"></div>
 								</a>
+								<?php foreach (mytheme_get_emails_extra() as $email_item) : ?>
+								<a href="mailto:<?php echo esc_attr($email_item['email']); ?>" class="text-dark text-decoration-none" style="display: flex; padding-bottom: 15px;" class="align-items-center">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/email-ico.svg">
+									</div>
+									<div class="nav-li-float-right">
+										<span><?php echo esc_html($email_item['email']); ?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</a>
+								<?php endforeach; ?>
 							</div>
+							<?php endif; ?>
+
 						</div>
 					</div>
+
+					<!-- Соцсети -->
 					<div class="d-flex justify-content-md-center" style="margin-top: 60px;">
-						<!--
-						<img src="<?php echo get_template_directory_uri(); ?>/img/ico/whatsapp-ico.svg" alt="whatsapp" style="padding: 10px;">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telegram-ico.svg" alt="telegram" style="padding: 10px;">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/ico/instagram-ico.svg" alt="instagram" style="padding: 10px;">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/ico/vk-ico.svg" alt="vk" style="padding: 10px;">
-						-->
 						<ul class="nav">
+							<?php if (mytheme_get_whatsapp()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="https://wa.me/79511014610?web=1&amp;app_absent=1" target="_blank">
+								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_whatsapp()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/whatsapp-ico.svg">
 								</a>
 							</li>
+							<?php endif; ?>
+							<?php if (mytheme_get_telegram()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="https://t.me/+79511014610" target="_blank">
+								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_telegram()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telegram-ico.svg">
 								</a>
 							</li>
-                            <li class="nav-item">
-                                <a class="nav-link ico-button px-2" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/ico/max.svg">
-                                </a>
-                            </li>
+							<?php endif; ?>
+							<?php if (mytheme_get_max()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="https://www.instagram.com/mozaika.kitchen62" target="_blank">
+								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_max()); ?>" target="_blank">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/max.svg">
+								</a>
+							</li>
+							<?php endif; ?>
+							<?php if (mytheme_get_instagram()) : ?>
+							<li class="nav-item">
+								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_instagram()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/instagram-ico.svg">
 								</a>
 							</li>
+							<?php endif; ?>
+							<?php if (mytheme_get_vk()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="https://vk.com/mozaika.kitchen62" target="_blank">
+								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_vk()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/vk-ico.svg">
 								</a>
 							</li>
+							<?php endif; ?>
 						</ul>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -430,6 +247,6 @@
 	}
 </script>
 
-	
-	
+
+
 <?php include 'footer-1.php'; ?>
