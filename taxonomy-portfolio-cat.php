@@ -15,7 +15,7 @@
 <section style="height: 400px; z-index: auto;">
 	<div class="jobs-home-section" style="min-height: 400px;"></div>
 
-	<?php get_template_part('template-parts/header/header'); ?>
+	<?php get_template_part('template-parts/header-section/header-section'); ?>
 
 
 	<div class="container">
@@ -377,4 +377,4 @@
 
 
 
-<?php include 'footer-1.php'; ?>
+<?php include 'footer.php'; ?>
