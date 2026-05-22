@@ -1248,8 +1248,7 @@ function my_extra_fields_update( $post_id ){
 
 
 
-/*** BREADCRUMBS ***/
-/* Настройки хлебных крошек: иконка главной вместо текста, разделитель */
+/* Change several of the breadcrumb defaults */
 add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
 	return array(
@@ -1271,5 +1270,19 @@ add_filter( 'woocommerce_get_breadcrumb', function( $crumbs ) {
 		$crumbs[0] = [ _x( 'Наши работы', 'breadcrumb', 'woocommerce' ), get_post_type_archive_link( 'portfolio' ) ];
 	}
 	return $crumbs;
-} );
-/*** END BREADCRUMBS ***/
+}, 10, 2 );
+
+
+/* WC 2.6.4: Изменить любой элемент "хлебных крошек" */
+add_filter( 'woocommerce_get_breadcrumb', 'my_woocommerce_get_breadcrumb' );
+function my_woocommerce_get_breadcrumb($breadcrumb) {
+		
+		foreach ( $breadcrumb as $key => $crumb ) {
+			// заменяем "крошку" корня каталога "Каталог" на "Мой каталог"
+			//if ($breadcrumb[$key][0] == 'Каталог') $breadcrumb[$key][0] = 'Мой каталог';
+			// заменяем, если в "крошке" название 'Компьютеры Apple'
+			if ($breadcrumb[$key][0] == 'Наша продукция') $breadcrumb[$key][0] = 'Продукция';
+		}
+		
+	return $breadcrumb;
+}

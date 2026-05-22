@@ -15,7 +15,7 @@ include 'header.php';
 	<!-- Header -->
 	<div class="index-parallax-home-section" style="min-height: 640px;"></div>
 
-	<?php get_template_part('template-parts/header/header'); ?>
+	<?php get_template_part('template-parts/header-section/header-section'); ?>
 
 	<div class="container">
 		<div class="row align-items-center home-section-height">
@@ -711,4 +711,4 @@ get_template_part('template-parts/action/action', '', [
 <!-- /SECTION ORDER 1 -->
 
 
-<?php include 'footer-1.php'; ?>
+<?php include 'footer.php'; ?>

@@ -17,7 +17,7 @@
 		<!-- <div class="overlay"></div> -->
 		<div id="sp-home" class="scroll-points"></div>
 
-		<?php get_template_part('template-parts/header/header'); ?>
+		<?php get_template_part('template-parts/header-section/header-section'); ?>
 
 		<div class="container">
 			<div class="row align-items-center home-section-height min-home-section-height">
@@ -249,4 +249,4 @@
 
 
 
-<?php include 'footer-1.php'; ?>
+<?php include 'footer.php'; ?>
