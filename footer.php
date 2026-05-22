@@ -10,6 +10,11 @@
 		</script>
 <?php else : ?>
 
+<?php if ($counter_body = get_theme_mod('mytheme_counter_body')): ?>
+<!-- Код счетчика (body) -->
+<?php echo $counter_body; ?>
+<?php endif; ?>
+
 <div class="popup-overlay" id="cucinaPopup">
 	<div class="popup">
 		<div class="popup-bg"></div>

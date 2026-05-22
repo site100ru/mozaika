@@ -43,7 +43,7 @@ do_action( 'woocommerce_before_main_content' );
 		<div class="row align-items-center text-start" style="min-height: 410px;">
 			<div class="col py-5">
 				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-					<h1 class="woocommerce-products-header__title page-title mb-3">111<?php woocommerce_page_title(); ?></h1>
+				<h1 class="woocommerce-products-header__title page-title mb-3">111<?php woocommerce_page_title(); ?></h1>
 				<?php endif; ?>
 				<?php
 					if ( is_shop() ) {
@@ -63,7 +63,7 @@ do_action( 'woocommerce_before_main_content' );
 				?>
 				<!--p class="home-description mb-0">Собственное производство в Санкт-Петербурге жалюзи и рулонных штор, готовых и на заказ от 540 руб./м2. Оформляем окна любого размера и конфигурации. Бесплатный выезд замерщика с образцами. Срок изготовления и доставки от 2 до 5 дней. Гарантия 2 года. Европейская фурнитура.</p-->
 				<!--button type="button" class="btn btn-lg btn-orange mt-4">Вызвать замерщика</button-->
-				
+
 				<!-- Home advantages -->
 				<div class="row pb-2">
 					<div class="col-md-6 col-lg-3 mb-2 mb-md-0">
@@ -300,10 +300,10 @@ do_action( 'woocommerce_before_main_content' );
 								
 								while ( $query->have_posts() ) { $query->the_post();
 									if ( $count == 0 ) { ?>
-										<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<?php echo $count; ?>" class="active" aria-current="true" aria-label="Slide <?php echo $count + 1; ?>"></button>
-									<?php $count = $count + 1; } else { ?>
-										<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<?php echo $count; ?>" aria-label="Slide <?php echo $count + 1; ?>"></button>
-									<?php $count = $count + 1; }
+						<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<?php echo $count; ?>" class="active" aria-current="true" aria-label="Slide <?php echo $count + 1; ?>"></button>
+						<?php $count = $count + 1; } else { ?>
+						<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<?php echo $count; ?>" aria-label="Slide <?php echo $count + 1; ?>"></button>
+						<?php $count = $count + 1; }
 								}
 							} else {
 								
@@ -322,10 +322,10 @@ do_action( 'woocommerce_before_main_content' );
 								while ( $query->have_posts() ) { $query->the_post();
 									global $post;
 									if ( $count == 0 ) { ?>
-										<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<?php echo $count; ?>" class="active" aria-current="true" aria-label="Slide <?php echo $count + 1; ?>"></button>
-									<?php $count = $count + 1; } else { ?>
-										<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<?php echo $count; ?>" aria-label="Slide <?php echo $count + 1; ?>"></button>
-									<?php $count = $count + 1; }
+						<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<?php echo $count; ?>" class="active" aria-current="true" aria-label="Slide <?php echo $count + 1; ?>"></button>
+						<?php $count = $count + 1; } else { ?>
+						<button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="<?php echo $count; ?>" aria-label="Slide <?php echo $count + 1; ?>"></button>
+						<?php $count = $count + 1; }
 								}
 								
 							}
@@ -348,16 +348,16 @@ do_action( 'woocommerce_before_main_content' );
 								while ( $query->have_posts() ) { $query->the_post();
 									/* */
 									if ( $count == 0 ) { ?>
-										
-										<div class="carousel-item mb-4 active" data-bs-interval="100000">
-											<img src="<?php echo get_post_meta($post->ID, '_img-1')[0]; ?>" class="rounded shadow" alt="..." loading="lazy">
-										</div>
-									<?php $count = $count + 1; } else { ?>
-										
-										<div class="carousel-item mb-4">
-											<img src="<?php echo get_post_meta($post->ID, '_img-1')[0]; ?>" class="rounded shadow" alt="..." loading="lazy">
-										</div>
-									<?php }
+
+						<div class="carousel-item mb-4 active" data-bs-interval="100000">
+							<img src="<?php echo get_post_meta($post->ID, '_img-1')[0]; ?>" class="rounded shadow" alt="..." loading="lazy">
+						</div>
+						<?php $count = $count + 1; } else { ?>
+
+						<div class="carousel-item mb-4">
+							<img src="<?php echo get_post_meta($post->ID, '_img-1')[0]; ?>" class="rounded shadow" alt="..." loading="lazy">
+						</div>
+						<?php }
 								}
 							} else {
 								/* Если категория, то показываем фото из этой категории */
@@ -378,15 +378,15 @@ do_action( 'woocommerce_before_main_content' );
 								while ( $query->have_posts() ) { $query->the_post();
 									global $post;
 									if ( $count == 0 ) { ?>
-										<div class="carousel-item mb-4 active" data-bs-interval="100000">
-											<img src="<?php echo get_post_meta($post->ID, '_img-1')[0]; ?>" class="rounded shadow" alt="..." loading="lazy">
-										</div>
-									<?php $count = $count + 1; } else { ?>
-										
-										<div class="carousel-item mb-4">
-											<img src="<?php echo get_post_meta($post->ID, '_img-1')[0]; ?>" class="rounded shadow" alt="..." loading="lazy">
-										</div>
-									<?php }
+						<div class="carousel-item mb-4 active" data-bs-interval="100000">
+							<img src="<?php echo get_post_meta($post->ID, '_img-1')[0]; ?>" class="rounded shadow" alt="..." loading="lazy">
+						</div>
+						<?php $count = $count + 1; } else { ?>
+
+						<div class="carousel-item mb-4">
+							<img src="<?php echo get_post_meta($post->ID, '_img-1')[0]; ?>" class="rounded shadow" alt="..." loading="lazy">
+						</div>
+						<?php }
 								}
 							}
 							
@@ -424,7 +424,7 @@ do_action( 'woocommerce_before_main_content' );
 				<h2>Наши преимущества</h2>
 				<p class="advantages">Почему стоит выбрать салон кухонь «Мозаика»</p>
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">
-				
+
 				<div class="row">
 					<div class="col-lg-6 mb-4">
 						<div class="row">
@@ -456,7 +456,7 @@ do_action( 'woocommerce_before_main_content' );
 							<div class="col-9 col-md-10">
 								<h3 class="advantage-title text-start">Гарантия 2 года</h3>
 								<p class="text-start">Мы даем максимальную гарантию на свою мебель, т.к. уверены в профессионализме своих сотрудников и используемых материалах.</p>
-							</div>	
+							</div>
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4">
@@ -467,7 +467,7 @@ do_action( 'woocommerce_before_main_content' );
 							<div class="col-9 col-md-10">
 								<h3 class="advantage-title text-start">Скидка +20% при повторном обращении</h3>
 								<p class="text-start">Мы изготавливаем любую корпусную мебель, а значит Вы можете заказать у нас кухню, шкаф, прихожую или другую мебель в квартиру в едином стиле по выгодной цене.</p>
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>
@@ -485,7 +485,7 @@ do_action( 'woocommerce_before_main_content' );
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col">
-			<?php
+				<?php
 				$obj = get_queried_object();
 				$cat_name = $obj->name;
 				//echo $cat_name;
@@ -503,7 +503,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-1-1">
 									<input type="radio" id="answer-2-1-1" name="quostion-2-1" class="checkbox" value="Прямая">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -513,7 +515,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-1-2">
 									<input type="radio" id="answer-2-1-2" name="quostion-2-1" class="checkbox" value="Угловая">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -523,7 +527,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-1-3">
 									<input type="radio" id="answer-2-1-3" name="quostion-2-1" class="checkbox" value="П-образная">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-1-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -533,7 +539,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-1-4">
 									<input type="radio" id="answer-2-1-4" name="quostion-2-1" class="checkbox" value="С островком">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-1-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -557,7 +565,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Один размер -->
 					<div class="col-md-6" id="3-1-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">2/6</span>Укажите размеры</h3>
@@ -574,7 +582,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Два размера -->
 					<div class="col-md-6" id="3-1-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">2/6</span>Укажите размеры</h3>
@@ -595,7 +603,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Три размера -->
 					<div class="col-md-6" id="3-1-3" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">2/6</span>Укажите размеры</h3>
@@ -620,7 +628,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Четыре размера -->
 					<div class="col-md-6" id="3-1-4" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">2/6</span>Укажите размеры в сантиметрах</h3>
@@ -649,7 +657,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 4/7 -->
 					<div class="col-12" id="4-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">3/6</span>Какой стиль кухни Вы рассматриваете?</h3>
@@ -658,7 +666,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-4-1-1">
 									<input type="radio" id="answer-4-1-1" name="quostion-4-1" class="checkbox" value="Современный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/4-1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -668,7 +678,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-4-1-2">
 									<input type="radio" id="answer-4-1-2" name="quostion-4-1" class="checkbox" value="Классический">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/4-1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -678,7 +690,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-4-1-3">
 									<input type="radio" id="answer-4-1-3" name="quostion-4-1" class="checkbox" value="Лофт">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/4-1-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -688,7 +702,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-4-1-4">
 									<input type="radio" id="answer-4-1-4" name="quostion-4-1" class="checkbox" value="Пока не знаю, нужна консультация">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/4-1-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -702,7 +718,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 5/7 -->
 					<div class="col-12" id="5-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">4/6</span>Какой материал фасада кухни Вы хотите?</h3>
@@ -711,7 +727,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-1">
 									<input type="radio" id="answer-5-1-1" name="quostion-5-1" class="checkbox" value="ЛДСП/ЛМДФ">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -721,7 +739,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-2">
 									<input type="radio" id="answer-5-1-2" name="quostion-5-1" class="checkbox" value="Пленка">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -731,7 +751,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-3">
 									<input type="radio" id="answer-5-1-3" name="quostion-5-1" class="checkbox" value="Эмаль">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -741,7 +763,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-4">
 									<input type="radio" id="answer-5-1-4" name="quostion-5-1" class="checkbox" value="Пластик">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -751,7 +775,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-5">
 									<input type="radio" id="answer-5-1-5" name="quostion-5-1" class="checkbox" value="Массив">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-5.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -761,7 +787,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-6">
 									<input type="radio" id="answer-5-1-6" name="quostion-5-1" class="checkbox" value="Пока не знаю, нужна консультация">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-6.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -775,7 +803,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 6/7 -->
 					<div class="col-12" id="6-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">5/6</span>Какой подарок Вы хотите получить в случае заказа?</h3>
@@ -784,7 +812,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-1-1">
 									<input type="radio" id="answer-6-1-1" name="quostion-6-1" class="checkbox" value="Скидка 10%">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -794,7 +824,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-1-2">
 									<input type="radio" id="answer-6-1-2" name="quostion-6-1" class="checkbox" value="Беспроцентная рассрочка на 6 месяцев">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -804,7 +836,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-1-3">
 									<input type="radio" id="answer-6-1-3" name="quostion-6-1" class="checkbox" value="Скидка 15% на заказ шкафа в теченее года">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-1-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -828,7 +862,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 7/1 -->
 					<div class="col-md-6" id="7-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">6/6</span>Введите Ваши контакты</h3>
@@ -860,11 +894,11 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</form>
 					</div>
-					<!-- /ВОПРОСЫ ПО КУХНЯМ -->						
+					<!-- /ВОПРОСЫ ПО КУХНЯМ -->
 				</div>
-				
+
 				<?php } else if ( $cat_name == 'Шкафы' ) { ?>
-					<!-- Расчет любой мебели -->
+				<!-- Расчет любой мебели -->
 				<h2 class="text-center mb-3">Ответьте на 6 вопросов ниже<br>и узнайте предварительную стоимость Вашего шкафа</h2>
 				<div class="title-line mb-5"></div>
 				<div class="row justify-content-center">
@@ -876,7 +910,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-1">
 									<input type="radio" id="answer-2-2-1" name="quostion-2-2" class="checkbox" value="Корпусный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -886,7 +922,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-2">
 									<input type="radio" id="answer-2-2-2" name="quostion-2-2" class="checkbox" value="Встроенный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -896,7 +934,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-3">
 									<input type="radio" id="answer-2-2-3" name="quostion-2-2" class="checkbox" value="Угловой">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -906,7 +946,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-4">
 									<input type="radio" id="answer-2-2-4" name="quostion-2-2" class="checkbox" value="Радиусный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -916,7 +958,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-5">
 									<input type="radio" id="answer-2-2-5" name="quostion-2-2" class="checkbox" value="Гардеробный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-5.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -926,7 +970,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-6">
 									<input type="radio" id="answer-2-2-6" name="quostion-2-2" class="checkbox" value="Пока не знаю">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-6.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -940,7 +986,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-12" id="3-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">3/7</span>Какой материал фасада шкафа Вы хотите?</h3>
 						<div class="row justify-content-md-center mb-5">
@@ -948,7 +994,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-1">
 									<input type="radio" id="answer-3-2-1" name="quostion-3-2" class="checkbox" value="ЛДСП">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -958,7 +1006,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-2">
 									<input type="radio" id="answer-3-2-2" name="quostion-3-2" class="checkbox" value="Пескоструй">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -968,7 +1018,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-3">
 									<input type="radio" id="answer-3-2-3" name="quostion-3-2" class="checkbox" value="Зеркало">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -978,7 +1030,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-4">
 									<input type="radio" id="answer-3-2-4" name="quostion-3-2" class="checkbox" value="Фотопечать">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -988,7 +1042,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-5">
 									<input type="radio" id="answer-3-2-5" name="quostion-3-2" class="checkbox" value="Комбинированный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-5.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -998,7 +1054,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-6">
 									<input type="radio" id="answer-3-2-6" name="quostion-3-2" class="checkbox" value="Пока не знаю">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-6.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1012,7 +1070,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-12" id="4-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">4/7</span>Какая ориентировочная ширина шкафа планируется?</h3>
 						<div class="row justify-content-md-center mb-5">
@@ -1124,7 +1182,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-12" id="5-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">5/7</span>Какое количество дверей Вы предполагаете?</h3>
 						<div class="row justify-content-md-center mb-5">
@@ -1132,7 +1190,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-1">
 									<input type="radio" id="answer-5-2-1" name="quostion-5-2" class="checkbox" value="1 дверь">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1142,7 +1202,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-2">
 									<input type="radio" id="answer-5-2-2" name="quostion-5-2" class="checkbox" value="2 двери">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1152,7 +1214,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-3">
 									<input type="radio" id="answer-5-2-3" name="quostion-5-2" class="checkbox" value="3 двери">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1162,7 +1226,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-4">
 									<input type="radio" id="answer-5-2-4" name="quostion-5-2" class="checkbox" value="4 двери">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1172,7 +1238,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-5">
 									<input type="radio" id="answer-5-2-5" name="quostion-5-2" class="checkbox" value="5 дверей">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-5.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1182,7 +1250,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-6">
 									<input type="radio" id="answer-5-2-6" name="quostion-5-2" class="checkbox" value="Более 5 дверей">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-6.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1196,7 +1266,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-12" id="6-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">6/7</span>Какой подарок Вы хотите получить в случае заказа?</h3>
 						<div class="row justify-content-md-center mb-5">
@@ -1204,7 +1274,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-2-1">
 									<input type="radio" id="answer-6-2-1" name="quostion-6-2" class="checkbox" value="Скидка 15%">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-2-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1214,7 +1286,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-2-2">
 									<input type="radio" id="answer-6-2-2" name="quostion-6-2" class="checkbox" value="Беспроцентная рассрочка на 6 месяцев">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-2-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1224,7 +1298,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-2-3">
 									<input type="radio" id="answer-6-2-3" name="quostion-6-2" class="checkbox" value="Бесплатная доставка и установка">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-2-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1234,7 +1310,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-2-4">
 									<input type="radio" id="answer-6-2-4" name="quostion-6-2" class="checkbox" value="Скидка 10% на заказ кухни в теченее года">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-2-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1248,7 +1326,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-md-6" id="7-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">7/7</span>Введите Ваши контакты</h3>
 						<form method="post" action="<?php echo get_stylesheet_directory_uri(); ?>/mails/get_calculate_closet.php">
@@ -1277,23 +1355,27 @@ do_action( 'woocommerce_before_main_content' );
 						</form>
 					</div><!-- /ВОПРОСЫ ПО ШКАФАМ -->
 				</div><!-- /Расчет шкафа -->
-				
+
 				<?php } else { ?>
-		
+
 				<!-- Расчет любой мебели -->
 				<h2 class="text-center mb-3">Ответьте на несколько вопросов ниже<br>и узнайте предварительную стоимость Вашей мебели</h2>
 				<div class="title-line mb-5"></div>
 				<div class="row justify-content-center">
-			
+
 					<!--  ПЕРВЫЙ ОБЩИЙ ВОПРОС -->
 					<div class="col-12" id="1">
-						<h3 class="text-center mb-5"><!--span class="me-2" style="color: #A5A5A5;">1/7</span-->Какая мебель Вас интересует?</h3>
+						<h3 class="text-center mb-5">
+							<!--span class="me-2" style="color: #A5A5A5;">1/7</span-->Какая мебель Вас интересует?
+						</h3>
 						<div class="row justify-content-md-center mb-5">
 							<div class="col-6 col-md-2">
 								<label class="option_item mb-3" for="answer-1-1">
 									<input type="radio" id="answer-1-1" name="quostion-1" class="checkbox" value="Кухня">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1303,7 +1385,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-1-2">
 									<input type="radio" id="answer-1-2" name="quostion-1" class="checkbox" value="Шкаф или гардеробная">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1313,7 +1397,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-1-3">
 									<input type="radio" id="answer-1-3" name="quostion-1" class="checkbox" value="Другая корпусная мебель">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/1-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1327,8 +1413,8 @@ do_action( 'woocommerce_before_main_content' );
 						</div>
 					</div>
 					<!--  /ПЕРВЫЙ ОБЩИЙ ВОПРОС -->
-					
-					
+
+
 					<!-- ВОПРОСЫ ПО КУХНЯМ -->
 					<div class="col-12" id="2-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">2/7</span>Какая планировка кухни Вам нужна?</h3>
@@ -1337,7 +1423,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-1-1">
 									<input type="radio" id="answer-2-1-1" name="quostion-2-1" class="checkbox" value="Прямая">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1347,7 +1435,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-1-2">
 									<input type="radio" id="answer-2-1-2" name="quostion-2-1" class="checkbox" value="Угловая">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1357,7 +1447,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-1-3">
 									<input type="radio" id="answer-2-1-3" name="quostion-2-1" class="checkbox" value="П-образная">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-1-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1367,7 +1459,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-1-4">
 									<input type="radio" id="answer-2-1-4" name="quostion-2-1" class="checkbox" value="С островком">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-1-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1391,7 +1485,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Один размер -->
 					<div class="col-md-6" id="3-1-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">3/7</span>Укажите размеры</h3>
@@ -1408,7 +1502,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Два размера -->
 					<div class="col-md-6" id="3-1-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">3/7</span>Укажите размеры</h3>
@@ -1429,7 +1523,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Три размера -->
 					<div class="col-md-6" id="3-1-3" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">3/7</span>Укажите размеры</h3>
@@ -1454,7 +1548,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- Четыре размера -->
 					<div class="col-md-6" id="3-1-4" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">3/7</span>Укажите размеры в сантиметрах</h3>
@@ -1483,7 +1577,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 4/7 -->
 					<div class="col-12" id="4-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">4/7</span>Какой стиль кухни Вы рассматриваете?</h3>
@@ -1492,7 +1586,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-4-1-1">
 									<input type="radio" id="answer-4-1-1" name="quostion-4-1" class="checkbox" value="Современный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/4-1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1502,7 +1598,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-4-1-2">
 									<input type="radio" id="answer-4-1-2" name="quostion-4-1" class="checkbox" value="Классический">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/4-1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1512,7 +1610,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-4-1-3">
 									<input type="radio" id="answer-4-1-3" name="quostion-4-1" class="checkbox" value="Лофт">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/4-1-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1522,7 +1622,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-4-1-4">
 									<input type="radio" id="answer-4-1-4" name="quostion-4-1" class="checkbox" value="Пока не знаю, нужна консультация">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/4-1-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1536,7 +1638,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 5/7 -->
 					<div class="col-12" id="5-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">5/7</span>Какой материал фасада кухни Вы хотите?</h3>
@@ -1545,7 +1647,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-1">
 									<input type="radio" id="answer-5-1-1" name="quostion-5-1" class="checkbox" value="ЛДСП/ЛМДФ">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1555,7 +1659,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-2">
 									<input type="radio" id="answer-5-1-2" name="quostion-5-1" class="checkbox" value="Пленка">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1565,7 +1671,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-3">
 									<input type="radio" id="answer-5-1-3" name="quostion-5-1" class="checkbox" value="Эмаль">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1575,7 +1683,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-4">
 									<input type="radio" id="answer-5-1-4" name="quostion-5-1" class="checkbox" value="Пластик">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1585,7 +1695,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-5">
 									<input type="radio" id="answer-5-1-5" name="quostion-5-1" class="checkbox" value="Массив">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-5.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1595,7 +1707,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-1-6">
 									<input type="radio" id="answer-5-1-6" name="quostion-5-1" class="checkbox" value="Пока не знаю, нужна консультация">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-1-6.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1609,7 +1723,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 6/7 -->
 					<div class="col-12" id="6-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">6/7</span>Какой подарок Вы хотите получить в случае заказа?</h3>
@@ -1618,7 +1732,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-1-1">
 									<input type="radio" id="answer-6-1-1" name="quostion-6-1" class="checkbox" value="Скидка 10%">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-1-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1628,7 +1744,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-1-2">
 									<input type="radio" id="answer-6-1-2" name="quostion-6-1" class="checkbox" value="Беспроцентная рассрочка на 6 месяцев">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-1-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1638,7 +1756,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-1-3">
 									<input type="radio" id="answer-6-1-3" name="quostion-6-1" class="checkbox" value="Скидка 15% на заказ шкафа в теченее года">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-1-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1662,7 +1782,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 7/1 -->
 					<div class="col-md-6" id="7-1" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">7/7</span>Введите Ваши контакты</h3>
@@ -1695,8 +1815,8 @@ do_action( 'woocommerce_before_main_content' );
 						</form>
 					</div>
 					<!-- /ВОПРОСЫ ПО КУХНЯМ -->
-					
-					
+
+
 					<!-- ВОПРОСЫ ПО ШКАФАМ -->
 					<div class="col-12" id="2-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">2/7</span>Какой тип шкафа Вам нужен?</h3>
@@ -1705,7 +1825,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-1">
 									<input type="radio" id="answer-2-2-1" name="quostion-2-2" class="checkbox" value="Корпусный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1715,7 +1837,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-2">
 									<input type="radio" id="answer-2-2-2" name="quostion-2-2" class="checkbox" value="Встроенный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1725,7 +1849,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-3">
 									<input type="radio" id="answer-2-2-3" name="quostion-2-2" class="checkbox" value="Угловой">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1735,7 +1861,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-4">
 									<input type="radio" id="answer-2-2-4" name="quostion-2-2" class="checkbox" value="Радиусный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1745,7 +1873,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-5">
 									<input type="radio" id="answer-2-2-5" name="quostion-2-2" class="checkbox" value="Гардеробный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-5.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1755,7 +1885,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-2-2-6">
 									<input type="radio" id="answer-2-2-6" name="quostion-2-2" class="checkbox" value="Пока не знаю">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/2-2-6.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1769,7 +1901,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-12" id="3-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">3/7</span>Какой материал фасада шкафа Вы хотите?</h3>
 						<div class="row justify-content-md-center mb-5">
@@ -1777,7 +1909,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-1">
 									<input type="radio" id="answer-3-2-1" name="quostion-3-2" class="checkbox" value="ЛДСП">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1787,7 +1921,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-2">
 									<input type="radio" id="answer-3-2-2" name="quostion-3-2" class="checkbox" value="Пескоструй">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1797,7 +1933,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-3">
 									<input type="radio" id="answer-3-2-3" name="quostion-3-2" class="checkbox" value="Зеркало">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1807,7 +1945,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-4">
 									<input type="radio" id="answer-3-2-4" name="quostion-3-2" class="checkbox" value="Фотопечать">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1817,7 +1957,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-5">
 									<input type="radio" id="answer-3-2-5" name="quostion-3-2" class="checkbox" value="Комбинированный">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-5.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1827,7 +1969,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-3-2-6">
 									<input type="radio" id="answer-3-2-6" name="quostion-3-2" class="checkbox" value="Пока не знаю">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/3-2-6.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1841,7 +1985,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-12" id="4-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">4/7</span>Какая ориентировочная ширина шкафа планируется?</h3>
 						<div class="row justify-content-md-center mb-5">
@@ -1953,7 +2097,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-12" id="5-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">5/7</span>Какое количество дверей Вы предполагаете?</h3>
 						<div class="row justify-content-md-center mb-5">
@@ -1961,7 +2105,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-1">
 									<input type="radio" id="answer-5-2-1" name="quostion-5-2" class="checkbox" value="1 дверь">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1971,7 +2117,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-2">
 									<input type="radio" id="answer-5-2-2" name="quostion-5-2" class="checkbox" value="2 двери">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1981,7 +2129,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-3">
 									<input type="radio" id="answer-5-2-3" name="quostion-5-2" class="checkbox" value="3 двери">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -1991,7 +2141,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-4">
 									<input type="radio" id="answer-5-2-4" name="quostion-5-2" class="checkbox" value="4 двери">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -2001,7 +2153,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-5">
 									<input type="radio" id="answer-5-2-5" name="quostion-5-2" class="checkbox" value="5 дверей">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-5.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -2011,7 +2165,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-5-2-6">
 									<input type="radio" id="answer-5-2-6" name="quostion-5-2" class="checkbox" value="Более 5 дверей">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/5-2-6.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -2025,7 +2181,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-12" id="6-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">6/7</span>Какой подарок Вы хотите получить в случае заказа?</h3>
 						<div class="row justify-content-md-center mb-5">
@@ -2033,7 +2189,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-2-1">
 									<input type="radio" id="answer-6-2-1" name="quostion-6-2" class="checkbox" value="Скидка 15%">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-2-1.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -2043,7 +2201,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-2-2">
 									<input type="radio" id="answer-6-2-2" name="quostion-6-2" class="checkbox" value="Беспроцентная рассрочка на 6 месяцев">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-2-2.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -2053,7 +2213,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-2-3">
 									<input type="radio" id="answer-6-2-3" name="quostion-6-2" class="checkbox" value="Бесплатная доставка и установка">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-2-3.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -2063,7 +2225,9 @@ do_action( 'woocommerce_before_main_content' );
 								<label class="option_item mb-3" for="answer-6-2-4">
 									<input type="radio" id="answer-6-2-4" name="quostion-6-2" class="checkbox" value="Скидка 10% на заказ кухни в теченее года">
 									<div class="option_inner">
-										<div class="shadow-wrapper"><div class="shadow-wrapper-decoration"></div></div>
+										<div class="shadow-wrapper">
+											<div class="shadow-wrapper-decoration"></div>
+										</div>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/quiz/6-2-4.jpg" style="width: 100%;">
 									</div>
 								</label>
@@ -2077,7 +2241,7 @@ do_action( 'woocommerce_before_main_content' );
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-md-6" id="7-2" style="display: none;">
 						<h3 class="text-center mb-5"><span class="me-2" style="color: #A5A5A5;">7/7</span>Введите Ваши контакты</h3>
 						<form method="post" action="<?php echo get_stylesheet_directory_uri(); ?>/mails/get_calculate_closet.php">
@@ -2106,8 +2270,8 @@ do_action( 'woocommerce_before_main_content' );
 						</form>
 					</div>
 					<!-- /ВОПРОСЫ ПО ШКАФАМ -->
-					
-					
+
+
 					<!-- ВЛПРОСЫ ПО ДРУГОЙ МЕБЕЛИ -->
 					<div class="col-12" id="2-3" style="display: none;">
 						<h3 class="text-center mb-5">Для расчета стоимости опишите Ваше изделие</h3>
@@ -2141,10 +2305,10 @@ do_action( 'woocommerce_before_main_content' );
 								</div>
 							</div>
 						</form>
-					</div><!-- /ВОПРОСЫ ПО ДРУГОЙ МЕБЕЛИ -->			
+					</div><!-- /ВОПРОСЫ ПО ДРУГОЙ МЕБЕЛИ -->
 				</div><!-- /Расчет любой мебели -->
-			
-			<?php } ?>
+
+				<?php } ?>
 			</div>
 		</div>
 	</div>
@@ -2153,4 +2317,4 @@ do_action( 'woocommerce_before_main_content' );
 
 
 <?php //get_footer( 'shop' ); ?>
-<?php get_footer( '2' ); ?>
+<?php get_footer(); ?>
