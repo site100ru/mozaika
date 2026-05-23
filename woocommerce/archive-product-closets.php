@@ -8,18 +8,7 @@
 	defined( 'ABSPATH' ) || exit;
 
 	get_header();
-	//get_header( 'shop' );
-	//include 'header.php';
-
-	/**
-	 * Hook: woocommerce_before_main_content.
-	 *
-	 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-	 * @hooked woocommerce_breadcrumb - 20
-	 * @hooked WC_Structured_Data::generate_website_data() - 30
-	 */
-	do_action( 'woocommerce_before_main_content' );
-
+	
 ?>
 
 
@@ -27,124 +16,124 @@
 <div id="sp-home" class="scroll-points"></div>
 <section class="main-home-section">
 	<div class="parallax-home-section-closets"></div>
-    <header class="d-none d-lg-block">
-        <!-- Header nav top -->
-        <nav class="header-nav-top navbar navbar-expand-lg navbar-light d-none d-lg-block py-0">
-            <div class="container">
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item me-1 me-xxl-3">
-                            <a class="nav-link" href="#">
-                                <div style="display: flex;">
-                                    <div class="nav-li-float-left">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/location-ico.svg">
-                                    </div>
-                                    <div class="nav-li-float-right" >
-                                        гор. Рязань,<br>ул. Чапаева, 56
-                                    </div>
-                                    <div style="clear: both;"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item me-1 me-xxl-3">
-                            <a class="nav-link" href="#">
-                                <div style="display: flex;">
-                                    <div class="nav-li-float-left">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/clock-ico.svg">
-                                    </div>
-                                    <div class="nav-li-float-right" >
-                                        Пн-Сб: с 10.00-19.00<br>Вс: с 10.00-17.00
-                                    </div>
-                                    <div style="clear: both;"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item me-1 me-xxl-3">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#callbackModal">
-                                <div style="display: flex;">
-                                    <div class="nav-li-float-left">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/callback-ico.svg">
-                                    </div>
-                                    <div class="nav-li-float-right max-width-1400 nav-wrap" >
-                                        Обратный звонок
-                                    </div>
-                                    <div style="clear: both;"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item me-1 me-xxl-4">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">
-                                <div style="display: flex;">      
-                                    <div class="nav-li-float-left">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/calculator-ico.svg">
-                                    </div>
-                                    <div class="nav-li-float-right max-width-1400 nav-wrap" >
-                                        Рассчитать стоимость
-                                    </div>
-                                    <div style="clear: both;"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item me-1 me-xxl-4">
-                            <a class="top-menu-tel nav-link" href="tel:+74912777098">
-                                <div style="display: flex;">
-                                    <div class="nav-li-float-left">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
-                                    </div>
-                                    <div class="nav-li-float-right" style="min-width: 128px;">
-                                        8 (4912) 77-70-98
-                                    </div>
-                                    <div style="clear: both;"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item me-1 me-xxl-4 d-none d-xl-block">
-                            <a class="top-menu-tel nav-link" href="tel:89511014610">
-                                <div style="display: flex;">
-                                    <div class="nav-li-float-left">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
-                                    </div>
-                                    <div class="nav-li-float-right" style="min-width: 128px;">
-                                        8 (951) 101-46-10
-                                    </div>
-                                    <div style="clear: both;"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ico-button" href="https://t.me/+79511014610" target="_blank">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/telegram-ico.svg">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ico-button" href="https://wa.me/79511014610?web=1&app_absent=1" target="_blank">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/whatsapp-ico.svg">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ico-button" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- /Header nav top -->
-        
-        <!-- Header nav bottom -->
-        <nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo-light.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
-                </a>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobail-header-collapse" aria-controls="mobail-header-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="mobail-header-collapse">
-                    <?php
+	<header class="d-none d-lg-block">
+		<!-- Header nav top -->
+		<nav class="header-nav-top navbar navbar-expand-lg navbar-light d-none d-lg-block py-0">
+			<div class="container">
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav ms-auto align-items-center">
+						<li class="nav-item me-1 me-xxl-3">
+							<a class="nav-link" href="#">
+								<div style="display: flex;">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/location-ico.svg">
+									</div>
+									<div class="nav-li-float-right">
+										гор. Рязань,<br>ул. Чапаева, 56
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</a>
+						</li>
+						<li class="nav-item me-1 me-xxl-3">
+							<a class="nav-link" href="#">
+								<div style="display: flex;">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/clock-ico.svg">
+									</div>
+									<div class="nav-li-float-right">
+										Пн-Сб: с 10.00-19.00<br>Вс: с 10.00-17.00
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</a>
+						</li>
+						<li class="nav-item me-1 me-xxl-3">
+							<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#callbackModal">
+								<div style="display: flex;">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/callback-ico.svg">
+									</div>
+									<div class="nav-li-float-right max-width-1400 nav-wrap">
+										Обратный звонок
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</a>
+						</li>
+						<li class="nav-item me-1 me-xxl-4">
+							<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">
+								<div style="display: flex;">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/calculator-ico.svg">
+									</div>
+									<div class="nav-li-float-right max-width-1400 nav-wrap">
+										Рассчитать стоимость
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</a>
+						</li>
+						<li class="nav-item me-1 me-xxl-4">
+							<a class="top-menu-tel nav-link" href="tel:+74912777098">
+								<div style="display: flex;">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
+									</div>
+									<div class="nav-li-float-right" style="min-width: 128px;">
+										8 (4912) 77-70-98
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</a>
+						</li>
+						<li class="nav-item me-1 me-xxl-4 d-none d-xl-block">
+							<a class="top-menu-tel nav-link" href="tel:89511014610">
+								<div style="display: flex;">
+									<div class="nav-li-float-left">
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
+									</div>
+									<div class="nav-li-float-right" style="min-width: 128px;">
+										8 (951) 101-46-10
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link ico-button" href="https://t.me/+79511014610" target="_blank">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/telegram-ico.svg">
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link ico-button" href="https://wa.me/79511014610?web=1&app_absent=1" target="_blank">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/whatsapp-ico.svg">
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link ico-button" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- /Header nav top -->
+
+		<!-- Header nav bottom -->
+		<nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo-light.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
+				</a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobail-header-collapse" aria-controls="mobail-header-collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="mobail-header-collapse">
+					<?php
                         wp_nav_menu(array(
                             'theme_location' => 'mobail-header-collapse',
                             'container' => false,
@@ -184,33 +173,33 @@
                             'walker' => new bootstrap_5_wp_nav_menu_walker()
                         ));
                     ?>
-                </div>
+				</div>
 
-            </div>
-        </nav>
-        <!-- /Header nav bottom -->
-    </header>
-	
-	
+			</div>
+		</nav>
+		<!-- /Header nav bottom -->
+	</header>
+
+
 	<header id="sliding-header" class="shadow">
 		<!-- Header nav bottom -->
 		<nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-1 py-lg-0">
 			<div class="container">
 				<a class="navbar-brand" href="/">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo-dark.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
-                </a>
-				
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo-dark.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
+				</a>
+
 				<div class="d-lg-none">
 					<a class="top-menu-tel pt-1 pb-0" style="font-size: 14px;" href="tel:89511014610">8 (951) 101-46-10</a>
 					<div style="font-size: 10px; font-family: Gilroy-Light; text-transform: none;">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/clock-ico.svg" style="width: 12px; position: relative; top: -1px;" class="me-1">Пн-Сб: с 10.00-19.00<br>Вс: с 10.00-17.00
 					</div>
 				</div>
-				
+
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sliding-header-collapse" aria-controls="sliding-header-collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				
+
 				<div class="collapse navbar-collapse" id="sliding-header-collapse">
 					<?php
 						wp_nav_menu(array(
@@ -264,15 +253,15 @@
 				<h1 class="home-title mb-3">Каталог шкафов по индивидуальным размерам на заказ от производителя</h1>
 				<p class="home-subtitle mb-4">Изготовим качественный шкаф с учетом Ваших пожеланий и особенностей помещения. Рассчитаем стоимость за 15 минут.</p>
 				<!-- <a href="#" type="button" class="btn btn-lg btn-corporate-color-1" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">Рассчитать стоимость</a> -->
-                 <a href="#quiz" class="btn btn-lg btn-corporate-color-1">Рассчитать стоимость</a>
-			</div>	
+				<a href="#quiz" class="btn btn-lg btn-corporate-color-1">Рассчитать стоимость</a>
+			</div>
 		</div>
 	</div>
 </section>
 <!-- /Home section -->
 
 
-		
+
 <!-- ARCHIVE PRODUCT SECTION -->
 <section class="archive-product-section pb-5 bg-white">
 	<div class="container">
@@ -507,9 +496,9 @@
 							//do_action( 'woocommerce_sidebar' );
 
 							?>
-						
-						
-						
+
+
+
 						<!--div class="col-md-4 mb-5" style="padding-right: 0;">
 							<a href="single-portfolio-product-page.html">
 								<div class="approximation project-container-2 rounded">
@@ -595,9 +584,9 @@
 							<div class="col">
 								<a href="#" type="button" class="btn btn-lg btn-corporate-color-1" style="padding: 8px 40px;">Показать еще</a>
 							</div>
-						</div-->	
+						</div-->
 					</div>
-				</div>	
+				</div>
 			</div>
 		</div>
 	</div>
@@ -632,10 +621,10 @@
 								</a>
 							</li>
 
-                            <li class="nav-item">
+							<li class="nav-item">
 								<a class="nav-link ico-button px-2" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
-                                </a>
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -661,7 +650,7 @@
 		<!-- Слайдер Bootstrap -->
 		<div class="row justify-content-between about_box">
 			<div class="col-12 col-lg-6 order-2 order-lg-first text-center">
-				
+
 				<div id="aboutCarousel" class="carousel slide" data-bs-ride="carousel">
 					<div class="carousel-inner rounded">
 						<div class="carousel-item active">
@@ -752,8 +741,8 @@
 <!-- /ABOUT SECTION -->
 
 <!-- /ABOUT SECTION GALLERY -->
-<div  id="aboutSectionGalleryWrapper">
-	<div id="aboutSectionGallery"  class="carousel slide" data-bs-ride="false" data-bs-interval="false"  style="display: none;  position: fixed;  top: 0;  height: 100%;  width: 100%;">
+<div id="aboutSectionGalleryWrapper">
+	<div id="aboutSectionGallery" class="carousel slide" data-bs-ride="false" data-bs-interval="false" style="display: none;  position: fixed;  top: 0;  height: 100%;  width: 100%;">
 		<div class="carousel-indicators">
 			<button id="indAboutSectionGallery-1" type="button" data-bs-target="#aboutSectionGallery" data-bs-slide-to="0" aria-label="Slide 1"></button>
 			<button id="indAboutSectionGallery-2" type="button" data-bs-target="#aboutSectionGallery" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -768,72 +757,72 @@
 			<div id="imgAboutSectionGallery-1" class="carousel-item h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/1.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh"  alt="..."/>
+						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/1.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh" alt="..." />
 					</div>
 				</div>
 			</div>
 			<div id="imgAboutSectionGallery-2" class="carousel-item h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/2.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh"  alt="..."/>
+						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/2.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh" alt="..." />
 					</div>
 				</div>
 			</div>
 			<div id="imgAboutSectionGallery-3" class="carousel-item h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/3.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh"  alt="..."/>
+						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/3.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh" alt="..." />
 					</div>
 				</div>
 			</div>
 			<div id="imgAboutSectionGallery-4" class="carousel-item h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/4.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh"  alt="..."/>
+						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/4.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh" alt="..." />
 					</div>
 				</div>
 			</div>
 			<div id="imgAboutSectionGallery-5" class="carousel-item h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/5.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh"  alt="..."/>
+						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/5.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh" alt="..." />
 					</div>
 				</div>
 			</div>
 			<div id="imgAboutSectionGallery-6" class="carousel-item h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/6.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh"  alt="..."/>
+						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/6.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh" alt="..." />
 					</div>
 				</div>
 			</div>
 			<div id="imgAboutSectionGallery-7" class="carousel-item h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/7.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh"  alt="..."/>
+						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/7.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh" alt="..." />
 					</div>
 				</div>
 			</div>
 			<div id="imgAboutSectionGallery-8" class="carousel-item h-100">
 				<div class="row align-items-center h-100">
 					<div class="col text-center">
-						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/8.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh"  alt="..."/>
+						<img src="https://xn--62-6kca7ahoms.xn--p1ai/wp-content/uploads/2025/08/8.webp" class="img-fluid lazyload" loading="lazy" style="max-width: 90vw; max-height: 90vh" alt="..." />
 					</div>
 				</div>
 			</div>
 		</div>
-		<button  class="carousel-control-prev"  type="button"  data-bs-target="#aboutSectionGallery"  data-bs-slide="prev">
+		<button class="carousel-control-prev" type="button" data-bs-target="#aboutSectionGallery" data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Previous</span>
 		</button>
-		<button class="carousel-control-next"  type="button" data-bs-target="#aboutSectionGallery" data-bs-slide="next">
+		<button class="carousel-control-next" type="button" data-bs-target="#aboutSectionGallery" data-bs-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="visually-hidden">Next</span>
 		</button>
 	</div>
 
 	<!-- Кнопка закрытия галереи -->
-	<button  type="button"  onClick="aboutSectionGalleryClose();" class="btn-close btn-close-white" style="position: fixed; top: 25px; right: 25px; z-index: 99999" aria-label="Close"></button>
+	<button type="button" onClick="aboutSectionGalleryClose();" class="btn-close btn-close-white" style="position: fixed; top: 25px; right: 25px; z-index: 99999" aria-label="Close"></button>
 </div>
 <!-- /ABOUT SECTION GALLERY -->
 
@@ -925,7 +914,7 @@
 				<h2>Наши преимущества</h2>
 				<p class="advantages">Почему стоит выбрать салон кухонь «Мозаика»</p>
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">
-				
+
 				<div class="row">
 					<div class="col-lg-6 mb-4">
 						<div class="row">
@@ -957,7 +946,7 @@
 							<div class="col-9 col-md-10">
 								<h3 class="advantage-title text-start">Гарантия 2 года</h3>
 								<p class="text-start">Мы даем максимальную гарантию на свою мебель, т.к. уверены в профессионализме своих сотрудников и используемых материалах.</p>
-							</div>	
+							</div>
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4">
@@ -968,7 +957,7 @@
 							<div class="col-9 col-md-10">
 								<h3 class="advantage-title text-start">Скидка +10% при повторном обращении</h3>
 								<p class="text-start">Мы изготавливаем любую корпусную мебель, а значит Вы можете заказать у нас кухню, шкаф, прихожую или другую мебель в квартиру в едином стиле по выгодной цене.</p>
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1181,10 +1170,10 @@
 								</a>
 							</li>
 
-                            <li class="nav-item">
+							<li class="nav-item">
 								<a class="nav-link ico-button px-2" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
-                                </a>
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -1199,4 +1188,4 @@
 <?php get_template_part('template-parts/quiz/wardrobe/quiz-wardrobe'); ?>
 
 
-<?php get_footer( '1' ); ?>
+<?php get_footer(); ?>
