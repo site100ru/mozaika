@@ -395,7 +395,8 @@
 
 
 <!-- Выбераем функцию для header -->
-<?php if (is_product()) { ?>
+<?php global $mytheme_white_header; ?>
+<?php if (!empty($mytheme_white_header)) { ?>
 <script>prilipalo();</script>
 <?php } else { ?>
 <script>vyezjalo();</script>

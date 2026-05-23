@@ -1,5 +1,5 @@
 <?php
-	
+
 	/**
 	 * The Template for displaying all single products
 	 *
@@ -16,199 +16,36 @@
 	 * @version     1.6.4
 	 */
 
-	
+
 	if ( ! defined( 'ABSPATH' ) ) {
 		exit; // Exit if accessed directly
 	}
 
-	
+
 	get_header();
 
-
-	/**
-	 * woocommerce_before_main_content hook.
-	 *
-	 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-	 * @hooked woocommerce_breadcrumb - 20
-	 */
-	do_action( 'woocommerce_before_main_content' );
-	
 ?>
-  	
-		
-		
-<!-- Header 2 -->
-<header class="header-2">
-	<!-- Top menu header -->
-	<nav class="header-nav-top navbar navbar-expand-lg navbar-light bg-light d-none d-xl-block py-0" style="border-bottom: 1px solid #d7d7d7">
-		<div class="container">
-			<div class="collapse navbar-collapse" id="navbarSupportedContent1">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-					<li class="nav-item me-3">
-						<a class="nav-link text-dark" href="#">
-							<div style="display: flex;">
-								<div class="nav-li-float-left">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/location-ico.svg">
-								</div>
-								<div class="nav-li-float-right" >
-									гор. Рязань,<br>ул. Чапаева, 56
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</a>
-					</li>
-					<li class="nav-item me-3">
-						<a class="nav-link text-dark" href="#">
-							<div style="display: flex;">
-								<div class="nav-li-float-left">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/clock-ico.svg">
-								</div>
-								<div class="nav-li-float-right" >
-									Пн-Сб: с 10.00-19.00<br>Вс: с 10.00-17.00
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</a>
-					</li>
-					<li class="nav-item me-3">
-						<a href="#" class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#callbackModal">
-							<div style="display: flex;">
-								<div class="nav-li-float-left">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/callback-ico.svg">
-								</div>
-								<div class="nav-li-float-right" >
-									Обратный звонок
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</a>
-					</li>
-					<li class="nav-item me-4">
-						<a class="nav-link text-dark" href="#" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">
-							<div style="display: flex;">      
-								<div class="nav-li-float-left">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/calculator-ico.svg">
-								</div>
-								<div class="nav-li-float-right" >
-									Рассчитать стоимость
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</a>
-					</li>
-					<li class="nav-item me-4">
-						<a class="top-menu-tel nav-link text-dark" href="tel:89511014610">
-							<div style="display: flex;">
-								<div class="nav-li-float-left">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
-								</div>
-								<div class="nav-li-float-right" >
-									8 (951) 101-46-10
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link ico-button" href="https://t.me/+79511014610" target="_blank">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/telegram-ico.svg">
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link ico-button" href="https://wa.me/79511014610?web=1&app_absent=1" target="_blank">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/whatsapp-ico.svg">
-						</a>
-					</li>
-                    <li class="nav-item">
-                        <a class="nav-link ico-button" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/max.svg">
-                        </a>
-                    </li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- /Top menu header  -->
+
+<?php get_template_part('template-parts/header-section/white-header-section'); ?>
 
 
-	<!-- Menu header -->
-	<nav id="header-2-bottom" class="header-nav-bottom navbar navbar-expand-lg navbar-light bg-white shadow py-2 py-lg-0">
-		<div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/logo-dark.svg" class="custom-logo" alt="Логотип в шапке" decoding="async" />
-            </a>
-			
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			
-			<div class="collapse navbar-collapse" id="main-menu">
-				<?php
-					wp_nav_menu(array(
-						'theme_location' => 'main-menu',
-						'container' => false,
-						'menu_class' => '',
-						'fallback_cb' => '__return_false',
-						'items_wrap' => '
-							<ul id="%1$s" class="navbar-nav ms-auto mb-2 mb-lg-0 %2$s">%3$s
-								<!-- Mobile menu -->
-								<li class="nav-item d-lg-none">
-									<a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#callbackModal">Вызов замерщика</a>
-								</li>
-								<li class="nav-item d-lg-none">
-									<div style="font-size: 12px; font-family: HelveticaNeueCyr-Light; text-transform: none;">
-										<img src="'.get_stylesheet_directory_uri().'/img/ico/location-ico.svg" style="width: 10px;" class="me-1">
-											<span>гор. Рязань, ул. Чапаева, 56</span>
-									</div>
-									<a class="nav-link top-menu-tel pt-1 pb-1" href="tel:89511014610">8 (951) 101-46-10</a>
-									<div class="mb-2" style="font-size: 12px; font-family: HelveticaNeueCyr-Light; text-transform: none;">
-										<img src="'.get_stylesheet_directory_uri().'/img/ico/clock-ico.svg" style="width: 10px; position: relative; top: 2px;" class="me-1 mb-2">Пн-Сб: с 10.00-19.00, Вс: с 10.00-17.00
-									</div>
-								</li>
-								<li class="nav-item d-lg-none pb-4">
-									<a class="ico-button pe-2" href="https://wa.me/79511014610?web=1&app_absent=1" target="_blank">
-										<img src="'.get_stylesheet_directory_uri().'/img/ico/whatsapp-ico.svg">
-									</a>
-                                    <a class="ico-button pe-2" href="https://t.me/+79511014610" target="_blank">
-                                        <img src="'.get_stylesheet_directory_uri().'/img/ico/telegram-ico.svg">
-                                    </a>
-                                    <a class="ico-button pe-0" href="https://max.ru/u/f9LHodD0cOJ43FcHRXMZDl7Pj6Znjki8fXkN8cmXFNxOU9f0FntW8dTdUis" target="_blank">
-                                        <img src="'.get_stylesheet_directory_uri().'/img/ico/max.svg">
-                                    </a>
-								</li>	
-								<!-- End mobile menu -->
-							</ul>
-						',
-						'depth' => 2,
-						'walker' => new bootstrap_5_wp_nav_menu_walker()
-					));
-				?>
-			</div>
-
-		</div>
-	</nav>
-	<!-- /Menu header -->
-</header><!-- /header-2 -->
-
-			
-				
 <?php while ( have_posts() ) : ?>
-	<?php the_post(); ?>
+<?php the_post(); ?>
 
-	<?php wc_get_template_part( 'content', 'single-product' ); ?>
+<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
 <?php endwhile; // end of the loop. ?>
-					
-					
+
+
 
 <!-- Gallery wrapper -->
 <div id="galleryWrapper" style="background: rgba(0,0,0,0.85); display: none; position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 9999;">
 
 	<div id="gallery-2" class="carousel slide" data-bs-ride="false" data-bs-interval="false" style="display: none; position: fixed; top: 0; height: 100%; width: 100%;">
-				
+
 		<!--div class="carousel-indicators">
 					</div-->
-		
+
 		<div class="carousel-inner h-100" style="width: 100%;">
 			<div class="carousel-item carousel-item-2 h-100 active">
 				<div class="row align-items-center h-100">
@@ -302,10 +139,10 @@
 		var gallery = gal; // Получаем ID галереи
 		// Открываем обертку галереи
 		document.getElementById('galleryWrapper').style.display = 'block';
-		
+
 		/* Открываем галерею */
 		document.getElementById(gallery).style.display = "block";
-		
+
 	}
 
 	/* Кнопка закрытия галереи */
@@ -326,7 +163,7 @@
 				<h2>Наши преимущества</h2>
 				<p class="advantages">Почему стоит выбрать салон кухонь «Мозаика»</p>
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">
-				
+
 				<div class="row">
 					<div class="col-lg-6 mb-4">
 						<div class="row">
@@ -358,7 +195,7 @@
 							<div class="col-9 col-md-10">
 								<h3 class="advantage-title text-start">Гарантия 2 года</h3>
 								<p class="text-start">Мы даем максимальную гарантию на свою мебель, т.к. уверены в профессионализме своих сотрудников и используемых материалах.</p>
-							</div>	
+							</div>
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4">
@@ -369,7 +206,7 @@
 							<div class="col-9 col-md-10">
 								<h3 class="advantage-title text-start">Скидка +10% при повторном обращении</h3>
 								<p class="text-start">Мы изготавливаем любую корпусную мебель, а значит Вы можете заказать у нас кухню, шкаф, прихожую или другую мебель в квартиру в едином стиле по выгодной цене.</p>
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>
@@ -481,4 +318,4 @@
 	//do_action( 'woocommerce_sidebar' );
 ?>
 
-<?php get_footer( '1' ); ?>
+<?php get_footer(); ?>
