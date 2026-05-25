@@ -57,4 +57,4 @@ include 'header.php';
 <!-- /Content -->
 
 
-<?php include 'footer-1.php'; ?>
+<?php include 'footer.php'; ?>
