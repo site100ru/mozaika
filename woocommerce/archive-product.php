@@ -2306,4 +2306,5 @@ get_header();
 <!-- End Quiz section -->
 
 
+<?php //get_footer( 'shop' ); ?>
 <?php get_footer(); ?>
