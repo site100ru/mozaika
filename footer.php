@@ -399,12 +399,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/theme.js"></script>
 
 
-<!-- Выбераем функцию для header -->
-<?php if (is_product()) { ?>
-<script>prilipalo();</script>
-<?php } else { ?>
-<script>vyezjalo();</script>
-<?php } ?>
+<script>initHeader();</script>
 
 
 <!-- Telephone number mask -->
@@ -464,7 +459,7 @@
 	});
 </script> -->
 <!-- <?php include get_template_directory() . '/inc/snowflake/snowflake.php'; ?> -->
-
+<?php wp_footer(); ?>
 </body>
 
 </html>
