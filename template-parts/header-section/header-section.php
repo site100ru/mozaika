@@ -120,7 +120,7 @@ ob_start(); ?>
 ob_start(); ?>
 
 <?php if ($address): ?>
-<li class="nav-item me-1 me-xxl-3">
+<li class="nav-item">
 	<a class="nav-link">
 		<div class="d-flex align-items-center gap-2">
 			<img src="<?= $img ?>location-ico.svg" alt="" class="mobile-ico">
@@ -131,7 +131,7 @@ ob_start(); ?>
 <?php endif; ?>
 
 <?php if ($job_time): ?>
-<li class="nav-item me-1 me-xxl-3">
+<li class="nav-item">
 	<a class="nav-link">
 		<div class="d-flex align-items-center gap-2">
 			<img src="<?= $img ?>clock-ico.svg" alt="" class="mobile-ico">
@@ -141,7 +141,7 @@ ob_start(); ?>
 </li>
 <?php endif; ?>
 
-<li class="nav-item me-1 me-xxl-3">
+<li class="nav-item">
 	<a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#callbackModal">
 		<div class="d-flex align-items-center gap-2">
 			<img src="<?= $img ?>callback-ico.svg" class="mobile-ico">
@@ -150,7 +150,7 @@ ob_start(); ?>
 	</a>
 </li>
 
-<li class="nav-item me-1 me-xxl-4">
+<li class="nav-item">
 	<a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#calculatePriceWithDownloadModal">
 		<div class="d-flex align-items-center gap-2">
 			<img src="<?= $img ?>calculator-ico.svg" class="mobile-ico">
@@ -160,7 +160,7 @@ ob_start(); ?>
 </li>
 
 <?php if ($add_phone && $add_phone_link): ?>
-<li class="nav-item me-1 me-xxl-4">
+<li class="nav-item">
 	<a class="top-menu-tel nav-link" href="tel:<?= esc_attr($add_phone_link) ?>">
 		<div class="d-flex align-items-center gap-2">
 			<img src="<?= $img ?>mobile-phone-ico.svg" class="mobile-ico">
@@ -171,7 +171,7 @@ ob_start(); ?>
 <?php endif; ?>
 
 <?php if ($main_phone && $main_phone_link): ?>
-<li class="nav-item me-1 me-xxl-4">
+<li class="nav-item">
 	<a class="top-menu-tel nav-link" href="tel:<?= esc_attr($main_phone_link) ?>">
 		<div class="d-flex align-items-center gap-2">
 			<img src="<?= $img ?>mobile-phone-ico.svg" class="mobile-ico">
@@ -181,27 +181,25 @@ ob_start(); ?>
 </li>
 <?php endif; ?>
 
-<?php if ($telegram): ?>
-<li class="nav-item">
-	<a class="nav-link ico-button" href="<?= esc_url($telegram) ?>" target="_blank">
-		<img src="<?= $img ?>telegram-ico.svg">
-	</a>
-</li>
-<?php endif; ?>
-
-<?php if ($whatsapp): ?>
-<li class="nav-item">
-	<a class="nav-link ico-button" href="<?= esc_url($whatsapp) ?>" target="_blank">
-		<img src="<?= $img ?>whatsapp-ico.svg">
-	</a>
-</li>
-<?php endif; ?>
-
-<?php if ($max_link): ?>
-<li class="nav-item">
-	<a class="nav-link ico-button" href="<?= esc_url($max_link) ?>" target="_blank">
-		<img src="<?= $img ?>max.svg">
-	</a>
+<?php if ($telegram || $whatsapp || $max_link): ?>
+<li class="nav-item top-bar-socials-item">
+	<div class="d-flex align-items-center top-bar-socials">
+		<?php if ($telegram): ?>
+		<a class="ico-button" href="<?= esc_url($telegram) ?>" target="_blank">
+			<img src="<?= $img ?>telegram-ico.svg">
+		</a>
+		<?php endif; ?>
+		<?php if ($whatsapp): ?>
+		<a class="ico-button" href="<?= esc_url($whatsapp) ?>" target="_blank">
+			<img src="<?= $img ?>whatsapp-ico.svg">
+		</a>
+		<?php endif; ?>
+		<?php if ($max_link): ?>
+		<a class="ico-button" href="<?= esc_url($max_link) ?>" target="_blank">
+			<img src="<?= $img ?>max.svg">
+		</a>
+		<?php endif; ?>
+	</div>
 </li>
 <?php endif; ?>
 
@@ -250,7 +248,7 @@ if ($is_white) : ?>
 	<nav class="header-nav-top navbar navbar-expand-lg navbar-light bg-light d-none d-lg-block py-0">
 		<div class="container">
 			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ms-auto align-items-center">
+				<ul class="navbar-nav ms-auto align-items-center header-top-bar-nav">
 					<?= $top_bar_items ?>
 				</ul>
 			</div>
@@ -312,7 +310,7 @@ else : ?>
 	<nav class="header-nav-top navbar navbar-expand-lg navbar-light d-none d-lg-block py-0">
 		<div class="container">
 			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ms-auto align-items-center">
+				<ul class="navbar-nav ms-auto align-items-center header-top-bar-nav">
 					<?= $top_bar_items ?>
 				</ul>
 			</div>
