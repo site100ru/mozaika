@@ -307,7 +307,7 @@ else : ?>
 <header class="d-none d-lg-block">
 
 	<!-- Верхняя информационная полоска: адрес, часы, телефоны, соцсети -->
-	<nav class="header-nav-top navbar navbar-expand-lg navbar-light d-none d-lg-block py-0">
+	<nav class="header-nav-top navbar navbar-expand-lg d-none d-lg-block py-0">
 		<div class="container">
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav ms-auto align-items-center header-top-bar-nav">
@@ -319,7 +319,7 @@ else : ?>
 	<!-- /Верхняя полоска -->
 
 	<!-- Основная навигация: логотип + меню (светлый логотип для тёмного фона) -->
-	<nav class="header-nav-bottom navbar navbar-expand-lg navbar-light py-0">
+	<nav class="header-nav-bottom navbar navbar-expand-lg py-0">
 		<div class="container">
 
 			<a class="navbar-brand" href="/">
