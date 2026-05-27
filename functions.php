@@ -279,39 +279,44 @@ function add_excerpt_to_pages() {
 
 
 
-/*** ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/ 
+/*** ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
+/**
+ * ФУНКЦИЯ echo_title()
+ * 
+ * Выводит правильный заголовок <title> для каждого типа страницы.
+ * Вызывается в header.php внутри тега <title>.
+ * 
+ * ЛОГИКА РАБОТЫ:
+ * - Страница категории товара WooCommerce  → название категории — название сайта
+ * - Архив портфолио                        → название архива — название сайта
+ * - Категория портфолио                    → название категории — название сайта
+ * - Все остальные страницы                 → стандартный wp_get_document_title()
+ * 
+ * Название сайта берётся автоматически из Настройки → Общие → Название сайта.
+ * Если название термина/архива пустое — выводится только название сайта.
+ * 
+ * ЧТО НУЖНО СДЕЛАТЬ ПРИ ПЕРЕНОСЕ НА НОВЫЙ САЙТ:
+ * - Убедиться что slug таксономии портфолио называется 'portfolio-cat',
+ *   иначе заменить в is_tax( 'portfolio-cat' )
+ * - Убедиться что slug CPT портфолио называется 'portfolio',
+ *   иначе заменить в is_post_type_archive( 'portfolio' )
+ * - Заполнить названия категорий товаров и портфолио в админке
+ */
 function echo_title() {
-    
-	// Если страница категории продукта woocommerce
+    $sep      = ' &#8212; ';
+    $sitename = get_bloginfo( 'name' );
+
     if ( is_product_category() ) {
-        foreach( wp_get_post_terms( get_the_id(), 'product_cat' ) as $term ){
-            if( $term ){
-                if ( $term->name ) {
-                    if ( $term->name == "Кухни" ) {
-                        echo "Каталог кухонь &#8212; Декор-Север"; // Product category name
-                    
-                    } elseif ( $term->name == "Шкафы" ) {
-                        echo "Каталог шкафов &#8212; Декор-Север"; // Product category name
-                        
-                    } elseif ( $term->name == "Корпусная мебель" ) {
-                        echo "Каталог корпусной мебели &#8212; Декор-Север"; // Product category name
-                    
-                    } else {
-                        echo $term->name; // Product category name
-                    }
-                }
-            }
-        }
-    
-    // Если страница портфолио
+        $term = get_queried_object();
+        echo ( $term && $term->name ) ? $term->name . $sep . $sitename : $sitename;
+
     } elseif ( is_post_type_archive( 'portfolio' ) ) {
-        echo 'Наши выполненные работы &#8212; Декор-Север';
-    
-    // Если страница категорий портфолио
+        echo get_the_archive_title() . $sep . $sitename;
+
     } elseif ( is_tax( 'portfolio-cat' ) ) {
-        $term = get_queried_object(); // Получаем текущий термин
-        echo "Наши работы: " . $term->name . " &#8212; Декор-Север";
-    
+        $term = get_queried_object();
+        echo ( $term && $term->name ) ? $term->name . $sep . $sitename : $sitename;
+
     } else {
         echo wp_get_document_title();
     }
@@ -319,49 +324,55 @@ function echo_title() {
 /*** END ДЕЛАЕМ ПРАВИЛЬНЫЙ TITLE ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
 
 
-
-
 /*** ДЕЛАЕМ ПРАВИЛЬНЫЙ DESCRIPTION ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
 function echo_description() {
-    
-    // Если страница стандартной категории поста
-    if ( is_category() ) {
-        echo wp_strip_all_tags( category_description() );
-    
-    // Если страница продукта woocommerce
+    $sitename    = get_bloginfo( 'name' );
+    $sitedesc    = get_bloginfo( 'description' );
+    $fallback    = $sitename . ( $sitedesc ? ' — ' . $sitedesc : '' );
+
+    if ( is_front_page() || is_home() ) {
+        echo $fallback;
+
+    } elseif ( is_category() ) {
+        $term = get_queried_object();
+        echo wp_strip_all_tags( category_description() ) ?: ( $term->name . ' — ' . $sitename );
+
     } elseif ( is_product() ) {
-        $product = wc_get_product( get_the_ID() ); 
-        $short_description = $product->get_short_description();
-        echo wp_strip_all_tags( $short_description );
-    
-    // Если страница категории продукта woocommerce
+        $product = wc_get_product( get_the_ID() );
+        echo wp_strip_all_tags( $product->get_short_description() ) ?: $fallback;
+
     } elseif ( is_product_category() ) {
-        foreach( wp_get_post_terms( get_the_id(), 'product_cat' ) as $term ){
-            if( $term ){
-                //echo $term->name . '<br>'; // product category name
-                if ( $term->description ) {
-                    echo $term->description; // Product category description
-                }
-            }
-        }
-    
-    // Если страница портфолио
+        $term = get_queried_object();
+        echo ( $term && $term->description ) ? $term->description : $term->name . ' — ' . $sitename;
+
     } elseif ( is_post_type_archive( 'portfolio' ) ) {
-        echo 'Наши выполненные работы - Декор-Север';
-    
-    // Если страница категорий портфолио
+        $terms = get_terms([
+            'taxonomy'   => 'portfolio-cat',
+            'hide_empty' => true,
+            'parent'     => 0,
+        ]);
+        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+            $names = wp_list_pluck( $terms, 'name' );
+            echo 'Наши работы: ' . implode( ', ', $names );
+        } else {
+            echo $fallback;
+        }
+
     } elseif ( is_tax( 'portfolio-cat' ) ) {
-        $term = get_queried_object(); // Получаем текущий термин
-        echo $term->description;
-    
-    // Если страница магазина	
+        $term = get_queried_object();
+        echo ( $term && $term->description ) ? $term->description : $term->name . ' — ' . $sitename;
+
+    } elseif ( is_cart() || is_checkout() || is_account_page() ) {
+        echo get_the_title() . ' — ' . $sitename;
+        
     } elseif ( is_shop() ) {
-        $shop_page_id = wc_get_page_id('shop');
-        echo get_the_excerpt($shop_page_id);
-    
-    // Если обычная страница
+        echo get_the_excerpt( wc_get_page_id( 'shop' ) ) ?: $fallback;
+
+    } elseif ( is_singular() ) {
+        echo get_the_excerpt() ?: $fallback;
+
     } else {
-        echo get_the_excerpt();
+        echo $fallback;
     }
 }
 /*** END ДЕЛАЕМ ПРАВИЛЬНЫЙ DESCRIPTION ДЛЯ КАЖДОЙ СТРАНИЦЫ ***/
