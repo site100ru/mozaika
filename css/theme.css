@@ -3109,3 +3109,28 @@ body.b-new-year:before {
 	opacity: 0.8;
 	color: #fff;
 }
+
+/* Декоративные точки-разделители между пунктами меню в шапке.
+   Раньше выводились walker'ом (functions.php) отдельными <li> с
+   img/ico/menu-decoration-point.svg — теперь рисуются чистым CSS.
+   Точка идёт ПОСЛЕ обычного (не dropdown) пункта через ::after — внутри
+   его li, чтобы выпадающее меню следующего пункта позиционировалось под
+   текстом, а не под точкой. После последнего видимого пункта точки нет
+   (:has проверяет наличие следующего; мобильные .d-lg-none не считаются).
+   Видимы только на xl+, как раньше (d-xl-inline). */
+@media (min-width: 1200px) {
+	.header-nav-bottom .navbar-nav > .nav-item:not(.dropdown):not(.d-lg-none):has(+ .nav-item:not(.d-lg-none)) {
+		display: flex;
+		align-items: center;
+	}
+
+	.header-nav-bottom .navbar-nav > .nav-item:not(.dropdown):not(.d-lg-none):has(+ .nav-item:not(.d-lg-none))::after {
+		content: "";
+		flex: 0 0 auto;
+		width: 6px;
+		height: 6px;
+		border-radius: 2px;
+		background: #00A3D3; /* как в menu-decoration-point.svg */
+		margin: 0 0.5rem;
+	}
+}
