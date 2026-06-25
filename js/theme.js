@@ -13,16 +13,19 @@ $(window).scroll(function (e) {
 /* End parallax home section */
 
 jQuery(function ($) {
+    const $parallaxBg = $('.parallax-background');
+    if (!$parallaxBg.length) return; // элемента нет на странице — выходим,
+
     $(window).on('scroll', function () {
         const scrollTop = $(window).scrollTop();
-        const sectionTop = $('.parallax-background').offset().top;
-        const sectionHeight = $('.parallax-background').outerHeight();
+        const sectionTop = $parallaxBg.offset().top;
+        const sectionHeight = $parallaxBg.outerHeight();
 
         if (scrollTop + window.innerHeight > sectionTop &&
             scrollTop < sectionTop + sectionHeight) {
 
             const offset = (scrollTop - sectionTop) * 0.35;
-            $('.parallax-background').css('transform', `translateY(${offset}px)`);
+            $parallaxBg.css('transform', `translateY(${offset}px)`);
         }
     });
 });
