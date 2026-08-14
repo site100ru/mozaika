@@ -1,12 +1,12 @@
 <?php
-	
+
 	/**
 	 * Template Name: Контакты
 	 * Template Post Type: page
 	 */
-	
+
 	include 'header.php';
-	
+
 ?>
 
 
@@ -51,25 +51,15 @@
 							<?php if (mytheme_get_address_full() || mytheme_get_job_time()) : ?>
 							<div class="col-md-3 contact-info" style="flex: 0 0 35%;">
 								<?php if (mytheme_get_address_full()) : ?>
-								<div style="display: flex; padding-bottom: 15px;" class="align-items-center">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/location-ico.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span style="text-wrap: wrap;"><?php echo wp_kses(mytheme_get_address_full(), ['br' => []]); ?></span>
-									</div>
-									<div style="clear: both;"></div>
+								<div class="d-flex align-items-center gap-2 pb-3">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/location-ico.svg">
+									<span><?php echo wp_kses(mytheme_get_address_full(), ['br' => []]); ?></span>
 								</div>
 								<?php endif; ?>
 								<?php if (mytheme_get_job_time()) : ?>
-								<div style="display: flex;" class="align-items-center">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/clock-ico.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span><?php echo wp_kses(mytheme_get_job_time(), ['br' => []]); ?></span>
-									</div>
-									<div style="clear: both;"></div>
+								<div class="d-flex align-items-center gap-2">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/clock-ico.svg">
+									<span><?php echo wp_kses(mytheme_get_job_time(), ['br' => []]); ?></span>
 								</div>
 								<?php endif; ?>
 							</div>
@@ -82,25 +72,15 @@
 							?>
 							<div class="col-md-3 contact-info">
 								<?php if (mytheme_get_phone('additional') && mytheme_get_phone_link('additional')) : ?>
-								<a href="tel:<?php echo esc_attr(mytheme_get_phone_link('additional')); ?>" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span><?php echo esc_html(mytheme_get_phone('additional')); ?></span>
-									</div>
-									<div style="clear: both;"></div>
+								<a href="tel:<?php echo esc_attr(mytheme_get_phone_link('additional')); ?>" class="d-flex align-items-center gap-2 pb-3 text-dark text-decoration-none">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
+									<span><?php echo esc_html(mytheme_get_phone('additional')); ?></span>
 								</a>
 								<?php endif; ?>
 								<?php foreach ($phones_extra as $phone) : ?>
-								<a href="tel:<?php echo esc_attr($phone['link']); ?>" style="display: flex;" class="align-items-center text-dark">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span><?php echo esc_html($phone['display']); ?></span>
-									</div>
-									<div style="clear: both;"></div>
+								<a href="tel:<?php echo esc_attr($phone['link']); ?>" class="d-flex align-items-center gap-2 text-dark text-decoration-none">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telephone-ico-blue.svg">
+									<span><?php echo esc_html($phone['display']); ?></span>
 								</a>
 								<?php endforeach; ?>
 							</div>
@@ -109,23 +89,13 @@
 							<!-- Основной телефон и обратный звонок -->
 							<?php if (mytheme_get_phone('main') && mytheme_get_phone_link('main')) : ?>
 							<div class="col-md-3 contact-info">
-								<a href="tel:<?php echo esc_attr(mytheme_get_phone_link('main')); ?>" style="display: flex; padding-bottom: 15px;" class="align-items-center text-dark text-decoration-none">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span><?php echo esc_html(mytheme_get_phone('main')); ?></span>
-									</div>
-									<div style="clear: both;"></div>
+								<a href="tel:<?php echo esc_attr(mytheme_get_phone_link('main')); ?>" class="d-flex align-items-center gap-2 pb-3 text-dark text-decoration-none">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/mobile-phone-ico.svg">
+									<span><?php echo esc_html(mytheme_get_phone('main')); ?></span>
 								</a>
-								<button data-bs-toggle="modal" data-bs-target="#callbackModal" style="display: flex;" class="btn p-0 align-items-center">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/callback-ico.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span>Обратный звонок</span>
-									</div>
-									<div style="clear: both;"></div>
+								<button data-bs-toggle="modal" data-bs-target="#callbackModal" class="btn p-0 d-flex align-items-center gap-2">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/callback-ico.svg">
+									<span>Обратный звонок</span>
 								</button>
 							</div>
 							<?php endif; ?>
@@ -133,24 +103,14 @@
 							<!-- Email -->
 							<?php if (mytheme_get_email()) : ?>
 							<div class="col-md-3 contact-info">
-								<a href="mailto:<?php echo esc_attr(mytheme_get_email()); ?>" class="text-dark text-decoration-none" style="display: flex; padding-bottom: 15px;" class="align-items-center">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/email-ico.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span><?php echo esc_html(mytheme_get_email()); ?></span>
-									</div>
-									<div style="clear: both;"></div>
+								<a href="mailto:<?php echo esc_attr(mytheme_get_email()); ?>" class="d-flex align-items-center gap-2 pb-3 text-dark text-decoration-none">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/email-ico.svg">
+									<span><?php echo esc_html(mytheme_get_email()); ?></span>
 								</a>
 								<?php foreach (mytheme_get_emails_extra() as $email_item) : ?>
-								<a href="mailto:<?php echo esc_attr($email_item['email']); ?>" class="text-dark text-decoration-none" style="display: flex; padding-bottom: 15px;" class="align-items-center">
-									<div class="nav-li-float-left">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/ico/email-ico.svg">
-									</div>
-									<div class="nav-li-float-right">
-										<span><?php echo esc_html($email_item['email']); ?></span>
-									</div>
-									<div style="clear: both;"></div>
+								<a href="mailto:<?php echo esc_attr($email_item['email']); ?>" class="d-flex align-items-center gap-2 pb-3 text-dark text-decoration-none">
+									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/email-ico.svg">
+									<span><?php echo esc_html($email_item['email']); ?></span>
 								</a>
 								<?php endforeach; ?>
 							</div>
@@ -161,38 +121,38 @@
 
 					<!-- Соцсети -->
 					<div class="d-flex justify-content-md-center" style="margin-top: 60px;">
-						<ul class="nav">
+						<ul class="nav footer-socials">
 							<?php if (mytheme_get_whatsapp()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_whatsapp()); ?>" target="_blank">
+								<a class="nav-link ico-button" href="<?php echo esc_url(mytheme_get_whatsapp()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/whatsapp-ico.svg">
 								</a>
 							</li>
 							<?php endif; ?>
 							<?php if (mytheme_get_telegram()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_telegram()); ?>" target="_blank">
+								<a class="nav-link ico-button" href="<?php echo esc_url(mytheme_get_telegram()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/telegram-ico.svg">
 								</a>
 							</li>
 							<?php endif; ?>
 							<?php if (mytheme_get_max()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_max()); ?>" target="_blank">
+								<a class="nav-link ico-button" href="<?php echo esc_url(mytheme_get_max()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/max.svg">
 								</a>
 							</li>
 							<?php endif; ?>
 							<?php if (mytheme_get_instagram()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_instagram()); ?>" target="_blank">
+								<a class="nav-link ico-button" href="<?php echo esc_url(mytheme_get_instagram()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/instagram-ico.svg">
 								</a>
 							</li>
 							<?php endif; ?>
 							<?php if (mytheme_get_vk()) : ?>
 							<li class="nav-item">
-								<a class="nav-link ico-button px-2" href="<?php echo esc_url(mytheme_get_vk()); ?>" target="_blank">
+								<a class="nav-link ico-button" href="<?php echo esc_url(mytheme_get_vk()); ?>" target="_blank">
 									<img src="<?php echo get_template_directory_uri(); ?>/img/ico/vk-ico.svg">
 								</a>
 							</li>
@@ -234,14 +194,14 @@
 			// от 0 (весь мир) до 19.
 			zoom: 17
 		});
-		
+
 		var glyphIcon1 = new ymaps.Placemark([54.624363, 39.734543], {}, {
 			iconLayout: 'default#image',
 			iconImageHref: '<?php echo get_template_directory_uri(); ?>/img/ico/placemark0.png',
 			iconImageSize: [270, 270],
 			iconImageOffset: [-150, -230]
 		});
-		
+
 		// Размещение геообъекта на карте.
 		myMap.geoObjects.add(glyphIcon1);
 	}

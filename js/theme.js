@@ -13,55 +13,106 @@ $(window).scroll(function (e) {
 /* End parallax home section */
 
 jQuery(function ($) {
+    if (!$('.parallax-background').length) return;
     $(window).on('scroll', function () {
-        const scrollTop = $(window).scrollTop();
-        const sectionTop = $('.parallax-background').offset().top;
-        const sectionHeight = $('.parallax-background').outerHeight();
-
-        if (scrollTop + window.innerHeight > sectionTop &&
-            scrollTop < sectionTop + sectionHeight) {
-
-            const offset = (scrollTop - sectionTop) * 0.35;
-            $('.parallax-background').css('transform', `translateY(${offset}px)`);
+        var scrollTop = $(window).scrollTop();
+        var sectionTop = $('.parallax-background').offset().top;
+        var sectionHeight = $('.parallax-background').outerHeight();
+        if (scrollTop + window.innerHeight > sectionTop && scrollTop < sectionTop + sectionHeight) {
+            var offset = (scrollTop - sectionTop) * 0.35;
+            $('.parallax-background').css('transform', 'translateY(' + offset + 'px)');
         }
     });
 });
 
-/* Функция "Выезжало */
-function vyezjalo() {
-    onscroll = function () {
-        var prokrutka = window.pageYOffset;
-        if (window.screen.width >= 992) {
-            if (prokrutka > 400) {
-                document.getElementById('sliding-header').style.top = '0px';
-            } else if (prokrutka <= 400) {
-                document.getElementById('sliding-header').style.top = '-100px';
+/* Инициализация хедера:*/
+function initHeader() {
+    var slidingHeader = document.getElementById('sliding-header');
+
+    if (slidingHeader) {
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth >= 992) {
+                slidingHeader.style.top = window.pageYOffset > 400 ? '0px' : '-100px';
             }
-        }
+        });
+    } else {
+        prilipalo();
     }
 }
 
-
-/* Функция "Прилипало" */
+/* Прилипающий белый хедер */
 function prilipalo() {
+    var headerNavBottom = document.getElementById('header-2-bottom');
+    var headerNavTop = document.querySelector('.header-nav-top');
+
+    if (!headerNavBottom) return;
+
+    function setMobileFixed() {
+        if (window.innerWidth < 992) {
+            var menuHeight = headerNavBottom.offsetHeight;
+            headerNavBottom.classList.add('fixed-top');
+            headerNavBottom.style.position = 'fixed';
+            headerNavBottom.style.top = '0';
+            document.body.style.paddingTop = menuHeight + 'px';
+        }
+    }
+
+    function checkDesktopPosition() {
+        if (window.innerWidth >= 992) {
+            var topMenuHeight = headerNavTop ? headerNavTop.offsetHeight : 0;
+            if (window.pageYOffset > topMenuHeight) {
+                var menuHeight = headerNavBottom.offsetHeight;
+                headerNavBottom.classList.add('fixed-top');
+                headerNavBottom.style.position = 'fixed';
+                headerNavBottom.style.top = '0';
+                document.body.style.paddingTop = menuHeight + 'px';
+            }
+        }
+    }
+
+    setMobileFixed();
+    checkDesktopPosition();
+
     window.addEventListener('scroll', function () {
         var prokrutka = window.pageYOffset;
         var screenWidth = window.innerWidth;
 
-        if (screenWidth >= 1200) {
-            if (prokrutka > 57) {
-                document.getElementById('header-2-bottom').classList.add('fixed-top');
-                document.getElementById('header-2-bottom').style.position = 'fixed';
-                document.getElementById('header-2-bottom').style.top = 0;
+        if (screenWidth >= 992) {
+            var topMenuHeight = headerNavTop ? headerNavTop.offsetHeight : 0;
+            if (prokrutka > topMenuHeight) {
+                var menuHeight = headerNavBottom.offsetHeight;
+                headerNavBottom.classList.add('fixed-top');
+                headerNavBottom.classList.add('scrolled');
+                headerNavBottom.style.position = 'fixed';
+                headerNavBottom.style.top = '0';
+                document.body.style.paddingTop = menuHeight + 'px';
             } else {
-                document.getElementById('header-2-bottom').classList.remove('fixed-top');
-                document.getElementById('header-2-bottom').style.position = 'absolute';
-                document.getElementById('header-2-bottom').style.top = '57px';
+                headerNavBottom.classList.remove('fixed-top');
+                headerNavBottom.classList.remove('scrolled');
+                headerNavBottom.style.position = 'relative';
+                headerNavBottom.style.top = '';
+                document.body.style.paddingTop = '0';
             }
+        }
+
+        if (screenWidth < 992) {
+            if (prokrutka > 0) {
+                headerNavBottom.classList.add('scrolled');
+            } else {
+                headerNavBottom.classList.remove('scrolled');
+            }
+        }
+    });
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth < 992) {
+            setMobileFixed();
         } else {
-            document.getElementById('header-2-bottom').style.position = '';
-            document.getElementById('header-2-bottom').style.top = 0;
-            document.getElementById('header-2-bottom').classList.add('fixed-top');
+            headerNavBottom.classList.remove('fixed-top');
+            headerNavBottom.style.position = 'relative';
+            headerNavBottom.style.top = '';
+            document.body.style.paddingTop = '0';
+            checkDesktopPosition();
         }
     });
 }

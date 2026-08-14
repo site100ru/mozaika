@@ -179,7 +179,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 		if ( $item_title == 'Контакты' ) {
 			$output .= '
 				<li class="nav-item d-none">
-					<span class="nav-link">
+					<span class="nav-link point">
 						<img src="'.get_template_directory_uri().'/img/ico/menu-decoration-point.svg" alt="">
 					</span>
 				</li>
@@ -187,7 +187,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 		} else if ( $dropdown == false AND $depth == 0 ) {
 			$output .= '
 				<li class="nav-item d-none d-xl-inline">
-					<span class="nav-link">
+					<span class="nav-link point">
 						<img src="'.get_template_directory_uri().'/img/ico/menu-decoration-point.svg" alt="">
 					</span>
 				</li>
