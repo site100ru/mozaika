@@ -226,10 +226,10 @@ function furniture_catalog_add_woocommerce_support() {
 
 
 /* Изменяем размер миниатюр WooCommerce */
-add_filter('woocommerce_get_image_size_thumbnail','add_thumbnail_size',1,10);
+add_filter('woocommerce_get_image_size_thumbnail','add_thumbnail_size',10,1);
 function add_thumbnail_size($size){
 	$size['width'] = 600;
-	//$size['height'] = 450;
+	$size['height'] = 400;
 	$size['crop']   = 1; //0 - не обрезаем, 1 - обрезка
 	return $size;
 }
