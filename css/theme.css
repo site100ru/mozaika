@@ -2451,12 +2451,6 @@ footer {
 		width: 100%;
 	}
 
-	.single_img,
-	.single_img_slide {
-		width: 336px;
-		height: 224px;
-	}
-
 	.site-wrap {
 		height: auto;
 	}
