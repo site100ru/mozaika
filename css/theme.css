@@ -803,13 +803,6 @@ h1.home-title {
 	overflow: hidden;
 }
 
-.description_about:has(p.text-start) {
-	padding-left: 20px;
-	padding-right: 0;
-	margin-bottom: 0;
-	margin-bottom: 0;
-}
-
 .description_about p {
 	line-height: 27px;
 }
@@ -2341,6 +2334,92 @@ footer {
 	}
 
 	/*** END MANUFACTURE SECTION ***/
+}
+
+
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a {
+	font-family: HelveticaNeueCyr-Light;
+	font-size: 14px;
+	width: auto;
+	color: var(--dark-color);
+	text-decoration: none;
+}
+
+.add_to_cart_button,
+.product_type_simple {
+	display: none;
+}
+
+.header-text {
+	text-align: center !important;
+}
+
+.woocommerce-loop-category__title,
+.woocommerce-loop-product__title {
+	font-family: HelveticaNeueBoldCondensed;
+	font-size: 20px;
+	color: #fff;
+}
+
+.widget_product_categories ul.product-categories {
+	list-style: none;
+	padding-left: 0;
+}
+
+.widget_product_categories ul.product-categories li.cat-item.current-cat a {
+	color: #00A3D3;
+}
+
+.cat-item {
+	margin-bottom: 6px;
+}
+
+.cat-item a {
+	font-family: HelveticaNeueCyr-Light;
+	color: var(--dark-color);
+	text-decoration: none;
+}
+
+.woocommerce .woocommerce-widget-layered-nav-list {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 25px !important;
+}
+
+.woocommerce-widget-layered-nav-list li {
+	position: relative;
+}
+
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a:before,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a:focus:before,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.woocommerce-widget-layered-nav-list__item--chosen.chosen a:before {
+	content: '';
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #dddddd;
+	margin-right: 8px;
+	position: relative;
+	top: 3px;
+
+}
+
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term a:focus:after,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.woocommerce-widget-layered-nav-list__item--chosen.chosen a:after {
+	content: '';
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: var(--corporate-color-1);
+	margin-right: 8px;
+	position: absolute;
+	left: 4px;
+	top: 7px;
+}
+
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.woocommerce-widget-layered-nav-list__item--chosen.chosen a:focus:after,
+.woocommerce-widget-layered-nav-list__item.wc-layered-nav-term.woocommerce-widget-layered-nav-list__item--chosen.chosen a:active:after {
+	opacity: 0;
 }
 
 @media (max-width: 360px) {
