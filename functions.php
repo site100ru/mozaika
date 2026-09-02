@@ -82,6 +82,8 @@ add_filter('pre_set_site_transient_update_themes', function($transient) {
 // Bootstrap 5 wp_nav_menu walker
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 	private $current_item;
+	private $portfolio_url = null;
+	private $is_portfolio_page = false;
 	private $dropdown_menu_alignment_values = [
 		'dropdown-menu-start',
 		'dropdown-menu-end',
@@ -98,12 +100,10 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 	];
 
 	function start_lvl(&$output, $depth = 0, $args = null) {
-		$dropdown_menu_class[] = '';
-		foreach($this->current_item->classes as $class) {
-			if(in_array($class, $this->dropdown_menu_alignment_values)) {
-				$dropdown_menu_class[] = $class;
-			}
-		}
+		$dropdown_menu_class = array_merge(
+			[ '' ],
+			array_intersect( (array) $this->current_item->classes, $this->dropdown_menu_alignment_values )
+		);
 		$indent = str_repeat("\t", $depth);
 		$submenu = ($depth > 0) ? ' sub-menu' : '';
 		$output .= "\n$indent<ul class=\"dropdown-menu$submenu " . esc_attr(implode(" ",$dropdown_menu_class)) . " depth_$depth\">\n";
@@ -114,9 +114,6 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 		$this->current_item = $item;
 
 		$indent = ($depth) ? str_repeat("\t", $depth) : '';
-
-		$li_attributes = '';
-		$class_names = $value = '';
 
 		$classes = empty($item->classes) ? array() : (array) $item->classes;
 
@@ -134,7 +131,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 		$id = strlen($id) ? ' id="' . esc_attr($id) . '"' : '';
 		
 		
-		$output .= $indent . '<li ' . $id . $value . $class_names . $li_attributes . '>';
+		$output .= $indent . '<li ' . $id . $class_names . '>';
 
 
 		$attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
@@ -149,13 +146,15 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
         ) ? 'active' : '';
 
         if ( empty($active_class) ) {
-            $item_url = trailingslashit( $item->url );
-            $portfolio_url = trailingslashit( get_post_type_archive_link('portfolio') );
-            
-            if ( !empty($portfolio_url) && $item_url === $portfolio_url ) {
-                if ( is_post_type_archive('portfolio') || is_tax('portfolio-cat') || get_post_type() === 'portfolio' ) {
-                    $active_class = 'active';
-                }
+            // Ссылка на архив портфолио и контекст страницы одинаковы для всех
+            // пунктов меню — вычисляем один раз на рендер, а не на каждый пункт
+            if ( $this->portfolio_url === null ) {
+                $this->portfolio_url     = trailingslashit( get_post_type_archive_link('portfolio') );
+                $this->is_portfolio_page = is_post_type_archive('portfolio') || is_tax('portfolio-cat') || get_post_type() === 'portfolio';
+            }
+
+            if ( !empty($this->portfolio_url) && trailingslashit( $item->url ) === $this->portfolio_url && $this->is_portfolio_page ) {
+                $active_class = 'active';
             }
         }
 
@@ -171,28 +170,9 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 		
 
 		$output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-		
-		
-		// Показываем точки в меню, первый вариант
-		$item_title = $item->title;
-		$dropdown = in_array( 'dropdown', $classes );
-		if ( $item_title == 'Контакты' ) {
-			$output .= '
-				<li class="nav-item d-none">
-					<span class="nav-link point">
-						<img src="'.get_template_directory_uri().'/img/ico/menu-decoration-point.svg" alt="">
-					</span>
-				</li>
-			';
-		} else if ( $dropdown == false AND $depth == 0 ) {
-			$output .= '
-				<li class="nav-item d-none d-xl-inline">
-					<span class="nav-link point">
-						<img src="'.get_template_directory_uri().'/img/ico/menu-decoration-point.svg" alt="">
-					</span>
-				</li>
-			';
-		}
+
+		// Декоративные точки-разделители между пунктами меню теперь рисуются
+		// чистым CSS (см. css/theme.css), а не отдельными <li> со svg
 	}
 }
 /* End Bootstrap 5 wp_nav_menu walker */
