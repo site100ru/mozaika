@@ -7,16 +7,13 @@
 
 include 'header.php';
 
-
 ?>
 
 <div id="sp-home" class="scroll-points"></div>
+<!-- Header -->
 <section class="main-home-section">
-	<!-- Header -->
 	<div class="index-parallax-home-section" style="min-height: 640px;"></div>
-
 	<?php get_template_part('template-parts/header-section/header-section'); ?>
-
 	<div class="container">
 		<div class="row align-items-center home-section-height">
 			<div class="col-xl-10 col-xxl-9">
@@ -31,7 +28,7 @@ include 'header.php';
 <!-- /Header -->
 
 
-<!-- Action -->
+<!-- Services page -->
 <section class="archive-portfolio-section archive-portfolio bg-white py-5">
 	<div class="container">
 		<div class="row">
@@ -72,7 +69,7 @@ include 'header.php';
 		</div>
 	</div>
 </section>
-<!-- /Action -->
+<!-- /Services page -->
 
 
 <!-- Action -->
