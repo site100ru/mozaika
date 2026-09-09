@@ -29,11 +29,12 @@ include "header.php"; ?>
 <!-- Content -->
 <section class="pt-4 bg-white" style="padding-bottom: 145px;">
 	<div class="container">
+
 		<div class="row">
 			<div class="col">
 				<div class="breadcrumbs">
 					<nav class="woocommerce-breadcrumb" itemprop="breadcrumb">
-						<a href="<?php echo home_url("/"); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/breadcrumbs-icon.svg"></a>
+						<a href="<?php echo home_url("/"); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/breadcrumbs-icon.svg" alt=""></a>
 						/ <?php the_title(); ?>
 					</nav>
 				</div>
@@ -43,20 +44,23 @@ include "header.php"; ?>
 		<div class="row">
 			<div class="col text-center">
 				<h2>Заголовок страница</h2>
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5" alt="">
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col">
-				<?php if (have_posts()):
-    	while (have_posts()):
-    		the_post();
-    		the_content();
-    	endwhile;
-    endif; ?>
+				<?php
+				if ( have_posts() ) :
+					while ( have_posts() ) :
+						the_post();
+						the_content();
+					endwhile;
+				endif;
+				?>
 			</div>
 		</div>
+
 	</div>
 </section>
 <!-- /Content -->
