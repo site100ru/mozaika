@@ -72,7 +72,7 @@ include 'header.php';
 <!-- /Services page -->
 
 
-<!-- Action -->
+<!-- Products page -->
 <section class="archive-portfolio-section archive-portfolio bg-light py-5">
 	<div class="container">
 		<div class="row">
@@ -113,7 +113,8 @@ include 'header.php';
 		</div>
 	</div>
 </section>
-<!-- /Action -->
+<!-- /Products page -->
+
 
 <!-- Вариант 1 - Section Portfolio Tabs -->
 <?php get_template_part('template-parts/section-portfolio-tabs/section-portfolio-tabs', null, array(
@@ -128,6 +129,7 @@ include 'header.php';
     'show_filter' => false,
     'show_card_title' => true
 )); ?>
+
 
 <!-- Gradient order section -->
 <section class="gradient-order-section bg-white" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/sec-bg3.webp);">
@@ -168,6 +170,7 @@ include 'header.php';
 	</div>
 </section>
 <!-- End gradient order section -->
+
 
 <!-- ABOUT SECTION -->
 <section class="about-section bg-white py-5">
@@ -271,7 +274,7 @@ include 'header.php';
 </section>
 <!-- /ABOUT SECTION -->
 
-<!-- /ABOUT SECTION GALLERY -->
+<!-- ABOUT SECTION GALLERY -->
 <div id="aboutSectionGalleryWrapper" class="bg-light">
 	<div id="aboutSectionGallery" class="carousel slide" data-bs-ride="false" data-bs-interval="false" style="display: none;  position: fixed;  top: 0;  height: 100%;  width: 100%;">
 		<div class="carousel-indicators">
@@ -439,8 +442,7 @@ include 'header.php';
 <!-- /ABOUT SECTION GALLERY SCRIPT -->
 
 
-
-<!-- Advantage section -->
+<!-- ADVANTAGES SECTION -->
 <section class="advantage bg-light py-5">
 	<div class="container">
 		<div class="row">
@@ -499,13 +501,16 @@ include 'header.php';
 		</div>
 	</div>
 </section>
-<!-- /Advantage section -->
+<!-- /ADVANTAGES SECTION -->
+
 
 <?php /* get_template_part('template-parts/reviews-section/reviews-section', null, array(
     'bg_color' => 'bg-white',
 )); */ ?>
 
+
 <?php // get_template_part('template-parts/paralax-section/paralax-section'); ?>
+
 
 <?php /*
 get_template_part('template-parts/action/action', '', [
@@ -608,7 +613,8 @@ get_template_part('template-parts/action/action', '', [
 </section>
 <!-- /Как мы работаем -->
 
-<!-- Frequent questions -->
+
+<!-- FREQUENT QUESTIONS -->
 <section class="advantages bg-white py-5">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -700,7 +706,7 @@ get_template_part('template-parts/action/action', '', [
 		</div>
 	</div>
 </section>
-<!-- /Frequent questions -->
+<!-- /FREQUENT QUESTIONS -->
 
 
 <!-- SECTION ORDER 1 -->
