@@ -43,7 +43,7 @@ include "header.php"; ?>
 
 		<div class="row">
 			<div class="col text-center">
-				<h2>Заголовок страница</h2>
+				<h2>Простая страница</h2>
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ico/section-title-dec.svg" class="mb-5" alt="">
 			</div>
 		</div>
