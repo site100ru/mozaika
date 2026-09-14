@@ -2662,6 +2662,7 @@ body.b-new-year:before {
 .header-nav-top a.nav-link {
 	font-family: Gilroy-Regular;
 	font-size: 14px;
+	line-height: 1;
 	color: #C8C8C8;
 }
 
@@ -2675,6 +2676,7 @@ body.b-new-year:before {
 }
 
 .header-nav-top a.top-menu-tel.nav-link {
+	line-height: 1;
 	white-space: nowrap;
 }
 
