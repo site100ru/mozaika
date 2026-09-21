@@ -2694,9 +2694,9 @@ body.b-new-year:before {
 	flex-shrink: 0;
 }
 
-/* Группа иконок соцсетей — 20px между иконками внутри группы */
 .top-bar-socials {
 	gap: 20px;
+	padding: .5rem 0;
 }
 
 @media (min-width: 1200px) {
