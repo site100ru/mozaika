@@ -72,6 +72,44 @@ include 'header.php';
 <!-- /Services page -->
 
 
+<?php
+/*
+ * Карточки блока «Каталог проектов».
+ * Берём категории товаров верхнего уровня из админки (Товары → Категории).
+ * Карточка выводится, только если в категории (или её подкатегориях) есть хотя бы один товар.
+ * Название, картинка (миниатюра категории) и ссылка берутся из самой категории.
+ * Если ни одной карточки нет — весь блок не выводится.
+ */
+$product_cards = [];
+
+/* hide_empty => false: счётчик категории не учитывает товары в подкатегориях, поэтому проверяем наличие товаров сами ниже */
+foreach (get_terms(['taxonomy' => 'product_cat', 'parent' => 0, 'hide_empty' => false]) as $term) {
+
+	/* Есть ли в категории хотя бы один опубликованный товар (подкатегории учитываются по умолчанию) */
+	$has_products = get_posts([
+		'post_type'      => 'product',
+		'posts_per_page' => 1,
+		'fields'         => 'ids',
+		'tax_query'      => [[
+			'taxonomy' => 'product_cat',
+			'terms'    => $term->term_id,
+		]],
+	]);
+	if ($has_products) {
+		/* ID миниатюры, загруженной в настройках категории WooCommerce */
+		$thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+
+		/* Данные одной карточки: ссылка на категорию, название категории, URL картинки в исходном размере */
+		$product_cards[] = [
+			'link'  => get_term_link($term),
+			'title' => $term->name,
+			'image' => wp_get_attachment_url($thumbnail_id),
+		];
+	}
+}
+?>
+
+<?php if ($product_cards): ?>
 <!-- Products page -->
 <section class="archive-portfolio-section archive-portfolio bg-light py-5">
 	<div class="container">
@@ -82,38 +120,27 @@ include 'header.php';
 			</div>
 		</div>
 		<div class="row text-start">
+			<?php foreach ($product_cards as $card): ?>
 			<div class="col-md-6 mb-5">
-				<a href="https://мозаика62.рф/product-category/кухни/">
+				<a href="<?php echo esc_url($card['link']); ?>">
 					<div class="approximation project-container-2 services">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/card1.webp" class="img-fluid" alt="">
+						<img src="<?php echo esc_url($card['image']); ?>" class="img-fluid" alt="<?php echo esc_attr($card['title']); ?>" decoding="async" />
 						<div class="card-wrapper project-container-2-footer">
 							<div class="row" style="height: 100%;">
 								<div class="col-6">
-									<h3 style="position: absolute; bottom: 0; width: 100%;">Проекты кухонь</h3>
+									<h3 style="position: absolute; bottom: 0; width: 100%;"><?php echo esc_html($card['title']); ?></h3>
 								</div>
 							</div>
 						</div>
 					</div>
 				</a>
 			</div>
-			<div class="col-md-6 mb-5">
-				<a href="https://мозаика62.рф/product-category/шкафы/">
-					<div class="services approximation project-container-2">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/closet-2-4.webp" class="img-fluid" alt="" decoding="async" />
-						<div class="card-wrapper project-container-2-footer">
-							<div class="row" style="height: 100%;">
-								<div class="col-6">
-									<h3 style="position: absolute; bottom: 0; width: 100%;">Проекты шкафов</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </section>
 <!-- /Products page -->
+<?php endif; ?>
 
 
 <!-- Вариант 1 - Section Portfolio Tabs -->
