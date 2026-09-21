@@ -78,6 +78,7 @@ include 'header.php';
  * Берём категории товаров верхнего уровня из админки (Товары → Категории).
  * Карточка выводится, только если в категории (или её подкатегориях) есть хотя бы один товар.
  * Название, картинка (миниатюра категории) и ссылка берутся из самой категории.
+ * Если у категории нет миниатюры — выводится стандартная заглушка WooCommerce.
  * Если ни одной карточки нет — весь блок не выводится.
  */
 $product_cards = [];
@@ -103,7 +104,7 @@ foreach (get_terms(['taxonomy' => 'product_cat', 'parent' => 0, 'hide_empty' => 
 		$product_cards[] = [
 			'link'  => get_term_link($term),
 			'title' => $term->name,
-			'image' => wp_get_attachment_url($thumbnail_id),
+			'image' => wp_get_attachment_url($thumbnail_id) ?: wc_placeholder_img_src('full'),
 		];
 	}
 }
