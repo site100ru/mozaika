@@ -2664,6 +2664,12 @@ body.b-new-year:before {
 	font-size: 14px;
 	line-height: 1;
 	color: #C8C8C8;
+	transition: .25s;
+}
+
+/* Наведение — как в подвале */
+.header-nav-top a.nav-link:hover {
+	opacity: .85;
 }
 
 /* Телефон в шапке и подвале — одинаковая типографика */
