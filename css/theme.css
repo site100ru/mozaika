@@ -2688,6 +2688,7 @@ body.b-new-year:before {
  */
 .header-top-bar-nav {
 	gap: 15px;
+	padding: .5rem 0;
 }
 
 .header-top-bar-nav .top-menu-tel {
@@ -2696,7 +2697,6 @@ body.b-new-year:before {
 
 .top-bar-socials {
 	gap: 20px;
-	padding: .5rem 0;
 }
 
 @media (min-width: 1200px) {
