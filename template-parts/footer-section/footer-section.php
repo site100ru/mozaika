@@ -35,22 +35,22 @@
 				<ul class="nav justify-content-center align-items-center">
 					<?php if (mytheme_get_address()): ?>
 					<li class="nav-item me-1 me-lg-2">
-						<a class="nav-link" href="#">
+						<div class="nav-link">
 							<div class="d-flex align-items-center gap-2">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/ico/location-ico.svg">
 								<span><?php echo wp_kses(mytheme_get_address(), ['br' => []]); ?></span>
 							</div>
-						</a>
+						</div>
 					</li>
 					<?php endif; ?>
 					<?php if (mytheme_get_job_time()): ?>
 					<li class="nav-item me-1 me-lg-2">
-						<a class="nav-link" href="#">
+						<div class="nav-link">
 							<div class="d-flex align-items-center gap-2">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/ico/clock-ico.svg">
 								<span><?php echo wp_kses(mytheme_get_job_time(), ['br' => []]); ?></span>
 							</div>
-						</a>
+						</div>
 					</li>
 					<?php endif; ?>
 					<?php if (mytheme_get_email()): ?>
@@ -138,22 +138,22 @@
 				<ul class="ps-0 pt-3 pb-2">
 					<?php if (mytheme_get_address()): ?>
 					<li class="nav-item">
-						<a href="#" class="nav-link ps-0 pb-2">
+						<div class="nav-link ps-0 pb-2">
 							<div class="d-flex align-items-center gap-2">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/ico/location-ico.svg">
 								<span><?php echo esc_html(mytheme_get_address()); ?></span>
 							</div>
-						</a>
+						</div>
 					</li>
 					<?php endif; ?>
 					<?php if (mytheme_get_job_time()): ?>
 					<li class="nav-item">
-						<a href="#" class="nav-link ps-0 py-2">
+						<div class="nav-link ps-0 py-2">
 							<div class="d-flex align-items-center gap-2">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/ico/clock-ico.svg">
 								<span><?php echo esc_html(mytheme_get_job_time()); ?></span>
 							</div>
-						</a>
+						</div>
 					</li>
 					<?php endif; ?>
 					<?php if (mytheme_get_email()): ?>
